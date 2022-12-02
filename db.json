@@ -1,0 +1,89 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1670076000&x-signature=STwDqBXyS4gYuFGoypIPjowIFPU%3D",
+      "nickName": "theanh28entertainment",
+      "fullName": "Theanh28entertainment",
+      "tick": true,
+      "followNumber": "3.2M",
+      "likeNumber": "2.2M"
+    },
+    {
+      "avaLink": "",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/be22b8593ea95c8835d47f4b5309ec16~c5_100x100.jpeg?x-expires=1670158800&x-signature=sHC1slnhFZ93b6MRBUg1maMyIUA%3D",
+      "nickName": "datvilla94",
+      "fullName": "🔥Đạt Villa🔥",
+      "tick": true,
+      "followNumber": "7.2M",
+      "likeNumber": "245.6M"
+    },
+    {
+      "id": 4,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/39911deb09b62b80810dec42c0722bbd~c5_100x100.jpeg?x-expires=1670158800&x-signature=gxEY67tqYO%2FeSRKuanr2fJzasXo%3D",
+      "nickName": "annhien_boiboi",
+      "fullName": "AnNhiên ❤️ BốiBối",
+      "tick": false,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    },
+    {
+      "id": 5,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/cc169321062db1e5b2ad0e89e4caa8d0~c5_100x100.jpeg?x-expires=1670158800&x-signature=b3fxolGNao%2FeIkm0qFBFrlRF%2F90%3D",
+      "nickName": "vietphuongthoa98",
+      "fullName": "Việt Phương Thoa",
+      "tick": true,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    },
+    {
+      "id": 6,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/083bdd98191f72128eebdbcca718c29f~c5_100x100.jpeg?x-expires=1670158800&x-signature=3sheDStdA46XYdUiOjDCaSznmzY%3D",
+      "nickName": "hoaa.hanassii",
+      "fullName": "Đào Lê Phương Hoa",
+      "tick": false,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    },
+    {
+      "id": 7,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1670076000&x-signature=STwDqBXyS4gYuFGoypIPjowIFPU%3D",
+      "nickName": "theanh28entertainment",
+      "fullName": "Theanh28entertainment",
+      "tick": true,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    },
+    {
+      "id": 8,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1670076000&x-signature=STwDqBXyS4gYuFGoypIPjowIFPU%3D",
+      "nickName": "theanh28entertainment",
+      "fullName": "Theanh28entertainment",
+      "tick": true,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    },
+    {
+      "id": 9,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1670076000&x-signature=STwDqBXyS4gYuFGoypIPjowIFPU%3D",
+      "nickName": "theanh28entertainment",
+      "fullName": "Theanh28entertainment",
+      "tick": true,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    },
+    {
+      "id": 10,
+      "img": "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1670076000&x-signature=STwDqBXyS4gYuFGoypIPjowIFPU%3D",
+      "nickName": "theanh28entertainment",
+      "fullName": "Theanh28entertainment",
+      "tick": true,
+      "followNumber": "8.2M",
+      "likeNumber": "5.2M"
+    }
+  ]
+}
