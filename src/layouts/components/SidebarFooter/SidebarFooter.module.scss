@@ -1,0 +1,28 @@
+.wrapper {
+    color: rgba(92, 94, 104, 0.5) ;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    padding: 8px;
+    margin-top: 10px;
+    a + a {
+        margin-left: 4px;
+    }
+
+    a {
+        color: rgba(101, 103, 114, 0.5);
+    }
+}
+
+.link_wrap + .link_wrap{
+    margin-top: 12px;
+    
+}
+
+.poppup_more {
+    margin-top: 12px;
+}
+
+.coppyright {
+    margin-top: 12px;
+}

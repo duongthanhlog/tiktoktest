@@ -15,3 +15,5 @@ export const suggest = async (page = '1', per_page) => {
         console.log(error)
     }
 };
+
+

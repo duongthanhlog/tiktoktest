@@ -29,20 +29,22 @@
         }
     }
 
-
-    span {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-left: 4px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-    }
-
     .icon {
         flex-shrink: 0;
         color: rgba(22, 24, 35, 1);
     }
+    
+   
 }
+
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
 

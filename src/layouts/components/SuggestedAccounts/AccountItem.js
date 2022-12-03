@@ -1,10 +1,10 @@
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames/bind';
-import styles from './SuggestedAccounts.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper/index.js';
 import AccountPreview from './AccountPreview/AccountPreview';
+import classNames from 'classnames/bind';
+import styles from './SuggestedAccounts.module.scss';
 
 const cx = classNames.bind(styles);
 

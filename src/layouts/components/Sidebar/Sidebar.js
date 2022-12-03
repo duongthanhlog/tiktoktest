@@ -8,7 +8,9 @@ import { useContext } from 'react';
 import { UserCurrentContext } from '~/UserProvider';
 import classNames from 'classnames/bind'
 import styles from './Sidebar.module.scss'
-import DiscoverTag from '../DiscoverTag';
+import DiscoverTag from '../DiscoverTags';
+import SidebarFooter from '../SidebarFooter';
+import DiscoverTags from '../DiscoverTags';
 
 const cx = classNames.bind(styles)
 
@@ -21,14 +23,17 @@ function SideBar() {
                 <MenuItem title="Đang Follow" to={config.routes.following} icon={<UserGroupIcon/>} activeIcon={<UserGroupIconActive />}/>
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon/>} activeIcon={<LiveIconActive />}/>
             </Menu>
-            <Seperate/>
-            { !currentUser && <LoginBox/>}
-            {!currentUser && <Seperate/>}
+
+
+            {!currentUser && <LoginBox />}
+
             <SuggestAccount label='Tài khoản được đề xuất' moreButton="Xem Tất cả" showPreview/>
-            <Seperate/>
+
             {currentUser && <SuggestAccount label='Các tài khoản đang follow' moreButton="Xem thêm" currentUser={currentUser} />}
-            {currentUser && <Seperate/>}
+
             <DiscoverTag label='Khám phá'/>
+            
+            <SidebarFooter/>
         </aside>
     );
 }
