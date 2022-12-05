@@ -11,7 +11,7 @@ function UserProvider( {children} ) {
 
     const value = {
         currentUser,
-        handleLogin
+        handleLogin,
     }
 
     return ( 

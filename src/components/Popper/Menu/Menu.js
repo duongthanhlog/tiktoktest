@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
-import styles from './Menu.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import Header from './Header';
 import MenuItem from './MenuItem';
 import { useState } from 'react';
+import styles from './Menu.module.scss';
+import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 

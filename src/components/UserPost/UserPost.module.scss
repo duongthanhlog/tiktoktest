@@ -1,0 +1,77 @@
+.post {
+    display: flex;
+    position: relative;
+    margin: 20px 0;
+    margin-left: 44px;
+}
+
+.wrapper {
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+.content {
+    margin-left: 12px;
+    margin-right: 140px;
+
+    .video_wrap {
+        display: flex;
+        align-items: flex-end;
+    
+        .video {
+            margin-right: 20px;
+            border-radius: 10px;
+            width: 281px;
+        }
+    }
+}
+
+.user_name {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+
+    .tick_icon {
+        color: #20d5ec;
+    }
+
+    .full_name {
+        margin-left: 8px;
+    }
+}
+
+
+.nick_name {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 25px;
+}
+
+.user_text {
+    .hashtag {
+        margin-left: 4px;
+    }
+}
+
+.music_info {
+    display: block;
+    margin: 4px 0 12px;
+}
+
+.user_img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+
+.button {
+    position: absolute;
+    top: 4px;
+    right: 0;
+}
+
+
+

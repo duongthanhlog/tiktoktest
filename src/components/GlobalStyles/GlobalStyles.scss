@@ -2,17 +2,18 @@
 
 // fonts embeded
 @font-face {
-    font-family: ProximaNova;
+    font-family: ProximaNova-Nova-Regular;
     src: url('/assests/fonts/Proxima-Nova-Regular.woff2');
     font-weight: 400;
 }
 @font-face {
-    font-family: ProximaNova;
+    font-family: ProximaNova-Nova-Semibold;
     src: url('/assests/fonts/Proxima-Nova-Semibold.woff2');
     font-weight: 700;
 }
+
 @font-face {
-    font-family: ProximaNova;
+    font-family: IBM Plex Sans;
     src: url('/assests/fonts/sofiapro-semibold.otf');
     font-weight: 700;
 }
@@ -21,13 +22,16 @@
     --default-layout-width : 1150px ;
     --default-layout-horizontal-spacer : 24px ;
     --default-layout-header-height : 60px ;
+    --font-family : 'IBM Plex Sans';
     --black:#000;
     --text-color:#333;
     --primary: rgba(254, 44, 85, 1);
     --white:#fff;
-    --font-family : 'ProximaNova';
     --border-sperate-color: #f0f0f1;
+    --sidebar-width : 356px;
 }
+
+
 
 * {
     box-sizing: border-box;
@@ -40,8 +44,9 @@ html {
 }
 
 body {
-    font-family:var(--font-family) sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
+    
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
@@ -49,43 +54,15 @@ body {
 }
 
 
-.tiktok-19fglm-DivBodyContainer {
-    margin-top: 60px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100vw;
-    max-width: 1150px;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-}
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-user agent stylesheet
-div {
-    display: block;
-}
-body {
-    font-family: "IBM Plex Sans",ProximaNova,Arial,Tahoma,PingFangSC,sans-serif;
-    font-size: 14px;
-    color: rgba(22, 24, 35, 1);
-    background-color: rgba(255, 255, 255, 1);
-    overscroll-behavior: contain;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-}
+
+// body {
+//     font-size: 14px;
+//     color: rgba(22, 24, 35, 1);
+//     background-color: rgba(255, 255, 255, 1);
+//     overscroll-behavior: contain;
+//     direction: ltr;
+//     -webkit-font-smoothing: antialiased;
+// }
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;

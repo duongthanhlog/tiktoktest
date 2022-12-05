@@ -5,6 +5,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper/index.js';
 import AccountPreview from './AccountPreview/AccountPreview';
 import classNames from 'classnames/bind';
 import styles from './SuggestedAccounts.module.scss';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -37,7 +38,7 @@ function AccountItem({ img, nickName, fullName, tick, followNumber, likeNumber, 
             appendTo={document.body}
         >
             <div className={cx('account_item')}>
-                <img alt="" className={cx('avatar')} src={img} />
+                <Image alt="" className={cx('avatar')} src={img} />
                 <div className={cx('item_info')}>
                     <p className={cx('nick_name')}>
                         <strong>{nickName}</strong>
