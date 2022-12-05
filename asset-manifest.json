@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.b3db2c9d.css",
-    "main.js": "/my-app/static/js/main.92b1e475.js",
-    "static/js/787.fe00223f.chunk.js": "/my-app/static/js/787.fe00223f.chunk.js",
-    "static/media/video.mp4": "/my-app/static/media/video.3bf6daf9d7176b6d1c50.mp4",
-    "static/media/sofiapro-semibold.otf": "/my-app/static/media/sofiapro-semibold.a9a8148f7d5d0db20db8.otf",
-    "static/media/Proxima-Nova-Regular.woff2": "/my-app/static/media/Proxima-Nova-Regular.6c83037ae28747e6d774.woff2",
-    "static/media/Proxima-Nova-Semibold.woff2": "/my-app/static/media/Proxima-Nova-Semibold.c5632e80f6e35c93156f.woff2",
-    "static/media/logo.svg": "/my-app/static/media/logo.4c412522828d657a9e648d3fb1429a78.svg",
-    "static/media/darkModeLogo.svg": "/my-app/static/media/darkModeLogo.a59e3c09e2c8a9480dcb6f259be2016f.svg",
-    "index.html": "/my-app/index.html",
-    "main.b3db2c9d.css.map": "/my-app/static/css/main.b3db2c9d.css.map",
-    "main.92b1e475.js.map": "/my-app/static/js/main.92b1e475.js.map",
-    "787.fe00223f.chunk.js.map": "/my-app/static/js/787.fe00223f.chunk.js.map"
+    "main.css": "/tiktoktest/static/css/main.f0dd56a7.css",
+    "main.js": "/tiktoktest/static/js/main.136e9e8c.js",
+    "static/js/787.fe00223f.chunk.js": "/tiktoktest/static/js/787.fe00223f.chunk.js",
+    "static/media/video.mp4": "/tiktoktest/static/media/video.3bf6daf9d7176b6d1c50.mp4",
+    "static/media/sofiapro-semibold.otf": "/tiktoktest/static/media/sofiapro-semibold.a9a8148f7d5d0db20db8.otf",
+    "static/media/Proxima-Nova-Regular.woff2": "/tiktoktest/static/media/Proxima-Nova-Regular.6c83037ae28747e6d774.woff2",
+    "static/media/Proxima-Nova-Semibold.woff2": "/tiktoktest/static/media/Proxima-Nova-Semibold.c5632e80f6e35c93156f.woff2",
+    "static/media/logo.svg": "/tiktoktest/static/media/logo.4c412522828d657a9e648d3fb1429a78.svg",
+    "static/media/darkModeLogo.svg": "/tiktoktest/static/media/darkModeLogo.a59e3c09e2c8a9480dcb6f259be2016f.svg",
+    "index.html": "/tiktoktest/index.html",
+    "main.f0dd56a7.css.map": "/tiktoktest/static/css/main.f0dd56a7.css.map",
+    "main.136e9e8c.js.map": "/tiktoktest/static/js/main.136e9e8c.js.map",
+    "787.fe00223f.chunk.js.map": "/tiktoktest/static/js/787.fe00223f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3db2c9d.css",
-    "static/js/main.92b1e475.js"
+    "static/css/main.f0dd56a7.css",
+    "static/js/main.136e9e8c.js"
   ]
 }
