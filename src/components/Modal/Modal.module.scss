@@ -1,3 +1,4 @@
+$footerHeight : 64px;
 .overlay {
     position: fixed;
     top: 0;
@@ -31,8 +32,7 @@
     transform: scale(0);
     transition: all 0.3s ease;
     width: 483px;
-    height: 100%;
-    padding: 48px 62px 0px;
+    padding: 48px 0 0;
     display: flex;
     flex-direction: column;
     border-radius: 10px ;
@@ -61,13 +61,13 @@
 }
 
 .login_list {
-    height: 342px;
-    overflow-y: scroll;
+    margin: 0 62px;
 }
 
 .body {
-
-    overflow: hidden;
+    height: 342px;
+    overflow-y: scroll;
+    margin-bottom: $footerHeight;
 }
 
 .login_item {
@@ -75,10 +75,19 @@
     width: 100%;
     border: 1px solid rgba(22, 24, 35, 0.12);
     height: 44px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.login_item{
-    margin-bottom: 10px;
+.icon {
+    position: absolute;
+    left: 12px;
 }
 
 .footer {
@@ -86,4 +95,23 @@
     left: 0;
     right: 0;
     bottom: 0;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+    height: $footerHeight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+
+    .footer_title span {
+        margin-left: 5px;
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 18px;
+        color: var(--primary);
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
