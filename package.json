@@ -30,6 +30,7 @@
     "react-app-rewired": "^2.2.1"
   },
   "scripts": {
+    "showbuild" : "serve -s build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
     "jsonserver": "json-server --watch db.json",
@@ -55,6 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://duongthanhlog.github.io/tiktoktest/"
+  }
 }

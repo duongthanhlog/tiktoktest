@@ -2,14 +2,12 @@ import classNames from 'classnames/bind';
 import styles from './DiscoverTags.module.scss';
 import DiscoverItem from '~/layouts/components/DiscoverTags/DiscoverItem';
 import { MusicIcon, TagIcon } from '~/components/Icons';
-import Seperate from '../Sidebar/Seperate';
+import Seperate from '../../../components/Seperate/Seperate';
 
 const cx = classNames.bind(styles);
 
 function DiscoverTags({ label }) {
     return (
-        <div>
-            <Seperate />
             <div className={cx('wrapper')}>
                 <p className={cx('label')}>{label}</p>
                 <div className={cx('tags')}>
@@ -39,7 +37,6 @@ function DiscoverTags({ label }) {
                     />
                 </div>
             </div>
-        </div>
     );
 }
 

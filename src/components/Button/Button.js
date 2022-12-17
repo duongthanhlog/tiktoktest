@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./Button.module.scss";
+import { useContext } from 'react';
+import { ModalContext, UserCurrentContext } from '~/Provider';
 
 const cx = classNames.bind(styles);
 
@@ -22,10 +24,14 @@ function Button({
   rightIcon,
   ...passProps
 }) {
+
+  const { handleOpenModal } = useContext(ModalContext)
+  const { currentUser } = useContext(UserCurrentContext)
+  
   let Components = "button";
 
   const props = {
-    onClick,
+    onClick ,
     ...passProps,
   };
 
@@ -35,6 +41,10 @@ function Button({
         delete props[key];
       }
     }
+  }
+  
+  if(!onClick && !currentUser) {
+      props.onClick = handleOpenModal
   }
 
   if (to) {
@@ -57,6 +67,7 @@ function Button({
     leftIcon,
     rightIcon,
   });
+
 
 
   return (

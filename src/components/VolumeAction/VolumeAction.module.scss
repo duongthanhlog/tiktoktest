@@ -1,0 +1,18 @@
+.volumn_wrap {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+
+    .volumn_types {
+        width: 45px;
+        background-color: transparent;
+        color: white;
+        padding: 8px;
+        cursor: pointer;
+    }
+}
+  
+.process {
+    right: 12px;
+    bottom: 8px;
+}

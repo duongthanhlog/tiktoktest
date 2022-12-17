@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AccountItem from './AccountItem';
 import { useEffect, useState } from 'react';
 import * as SuggestAccountService from '~/services/suggestService';
-import Seperate from '../Sidebar/Seperate';
+import Seperate from '../../../components/Seperate/Seperate';
 import { useDebounce } from '../Hooks';
 
 const cx = classNames.bind(styles);
@@ -71,8 +71,6 @@ function SuggestAccount({ label, currentUser, showPreview }) {
     }
 
     return (
-        <div>
-            <Seperate />
             <div className={cx('wrapper')}>
                 <p className={cx('label')}>{label}</p>
 
@@ -104,7 +102,6 @@ function SuggestAccount({ label, currentUser, showPreview }) {
                     </p>
                 )} */}
             </div>
-        </div>
     );
 }
 

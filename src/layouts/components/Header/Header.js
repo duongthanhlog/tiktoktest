@@ -27,7 +27,8 @@ import { MessageIcon, MailBox } from '~/components/Icons/Icon';
 import Image from '~/components/Image/Image';
 import Search from '../Search/Search';
 import { useContext } from 'react';
-import { UserCurrentContext } from '~/UserProvider';
+import { UserCurrentContext } from '~/Provider';
+
 
 const cx = classNames.bind(styles);
 
@@ -92,6 +93,8 @@ function Header() {
             separate: true,
         },
     ];
+
+
 
     return (
         <header className={cx('wrapper')}>

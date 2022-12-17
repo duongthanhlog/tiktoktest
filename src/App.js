@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { publicRoutes } from './routes/routes'
 import { DefaultLayout } from '~/layouts';
-import { Fragment } from 'react'
+import { Fragment, useContext, useState } from 'react'
+import Modal from "./components/Modal";
+import {ModalContext} from "./Provider/ModalProvider";
 
 function App() {
-  
+  const {openModal} = useContext(ModalContext)
+
   return (
     <Router>
       <div className="app">
@@ -27,7 +30,8 @@ function App() {
                   }/>
                   
               })}
-          </Routes>
+           </Routes>
+         <Modal/>
       </div>
     </Router>
   );

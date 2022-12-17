@@ -28,7 +28,7 @@
     --primary: rgba(254, 44, 85, 1);
     --white:#fff;
     --border-sperate-color: #f0f0f1;
-    --sidebar-width : 356px;
+    --sidebar-width : 340px;
 }
 
 
@@ -52,6 +52,9 @@ body {
     color: var(--text-color);
     overflow-y: overlay;
 }
+
+
+
 
 
 
@@ -111,4 +114,13 @@ body {
     .tippy-box[data-placement^=bottom]>.tippy-arrow:before {
         top: -8px;
     }
+}
+
+
+button {
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
 }

@@ -11,6 +11,7 @@ function UserProvider( {children} ) {
 
     const value = {
         currentUser,
+        setCurrentUser,
         handleLogin,
     }
 

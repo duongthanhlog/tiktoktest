@@ -1,14 +1,12 @@
 import Button from '~/components/Button';
 import classNames from 'classnames/bind';
 import styles from './LoginBox.module.scss';
-import Seperate from '../Sidebar/Seperate';
+import Seperate from '../../../components/Seperate/Seperate';
 
 const cx = classNames.bind(styles);
 
 function LoginBox() {
     return (
-        <div>
-            <Seperate />
             <div className={cx('login_box')}>
                 <span className={cx('login_title')}>
                     Đăng nhập để follow các tác giả, thích video và xem bình luận.
@@ -17,7 +15,6 @@ function LoginBox() {
                     <span>Đăng nhập</span>
                 </Button>
             </div>
-        </div>
     );
 }
 

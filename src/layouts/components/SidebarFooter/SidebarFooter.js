@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import Seperate from '../Sidebar/Seperate';
+import Seperate from '../../../components/Seperate/Seperate';
 import styles from './SidebarFooter.module.scss';
 
 const cx = classNames.bind(styles);
@@ -7,8 +7,6 @@ const cx = classNames.bind(styles);
 
 function SidebarFooter() {
     return ( 
-        <div>
-            <Seperate/>
             <div className={cx('wrapper')}>
                 <div className={cx('link_wrap')}>
                     <a href="">Giới thiệu</a>
@@ -37,7 +35,6 @@ function SidebarFooter() {
                 <div className={cx('poppup_more')}>Thêm</div>
                 <div className={cx('coppyright')}>© 2022 TikTok</div>
             </div>
-        </div>
     );
 }
 
