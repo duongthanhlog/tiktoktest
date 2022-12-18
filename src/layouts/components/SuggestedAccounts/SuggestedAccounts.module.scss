@@ -1,0 +1,86 @@
+.wrapper {
+    padding: 16px 0 2px;
+}
+
+.label {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: rgba(78, 81, 94, 0.75);;
+}
+
+.account_item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.avatar {  
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.item_info {
+    margin-left: 8px;
+    flex: 1;
+}
+
+.nick_name {
+    color: rgb(22, 24, 35);
+    font-family: "IBM Plex Sans", SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: -2px;
+    max-width: 260px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    strong {
+        margin-right: 4px;
+    }
+}
+.user_name{
+    color: rgba(22, 24, 35, 0.75);
+    font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    max-width: 260px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tick_icon {
+    color: rgb(32, 213, 236);
+    width: 1.4rem;
+    height: 1.4rem;
+};
+
+.more_btn {
+    color: rgb(254, 44, 85);
+    padding : 8px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-top: 8px;
+    padding: 0 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.preview_popper {
+    width: 320px;
+    margin-top: -8px;
+    padding-top: 0;
+}

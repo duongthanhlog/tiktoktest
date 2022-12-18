@@ -1,0 +1,18 @@
+.wrapper {
+    width: var(--sidebar-width);   
+    top: var(--default-layout-header-height);
+    bottom: 0;
+    background-color: white;
+    padding: 20px 4px 26px 8px;
+    position: fixed;
+    overflow: hidden;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &:hover {
+        overflow-y: overlay;
+    }
+
+}
