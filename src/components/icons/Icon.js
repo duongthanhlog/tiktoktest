@@ -487,6 +487,26 @@ export const AppleIcon = ({ width = '3.2rem', height = '3.2rem', className }) =>
     );
 };
 
+export const SeeMoreIcon = ({ width = '3.2rem', height = '3.2rem', className }) => {
+    return (
+        <svg
+            width={width}
+            data-e2e=""
+            height={height}
+            className={className}
+            viewBox="0 0 48 48"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M22.5858 32.4142L8.29289 18.1213C7.90237 17.7308 7.90237 17.0976 8.29289 16.7071L9.70711 15.2929C10.0976 14.9024 10.7308 14.9024 11.1213 15.2929L24 28.1716L36.8787 15.2929C37.2692 14.9024 37.9024 14.9024 38.2929 15.2929L39.7071 16.7071C40.0976 17.0976 40.0976 17.7308 39.7071 18.1213L25.4142 32.4142C24.6332 33.1953 23.3668 33.1953 22.5858 32.4142Z"
+            ></path>
+        </svg>
+    );
+};
+
 export const InstagramIcon = ({ width = '3.2rem', height = '3.2rem', className }) => {
     return (
         <svg

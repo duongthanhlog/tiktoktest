@@ -1,7 +1,7 @@
 import styles from './AcctionButton.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { UserCurrentContext, ModalContext } from '~/Provider';
 
 const cx = classNames.bind(styles);
@@ -17,7 +17,6 @@ function ActionButton({type, mount, className, onClick}) {
         onClick = handleOpenModal
     }
     
-
     return ( 
         <div className={cx('action')}>
             <button onClick={onClick} className={classes}>

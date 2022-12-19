@@ -51,7 +51,7 @@ function SuggestAccount({ label, currentUser, showPreview }) {
                 likeNumber={user.likes_count}
             />
         ))        
-    };
+    }
 
     const handleSeeAll = () => {
         setSeeAll(true)

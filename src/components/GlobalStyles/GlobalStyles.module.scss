@@ -44,9 +44,6 @@ html {
     font-size: 62.5%;
 }
 
-body.hidden {
-    overflow: hidden;
-}
 
 body {
     font-family:Arial, Helvetica, sans-serif;
@@ -56,29 +53,12 @@ body {
     text-rendering: optimizeSpeed;
     color: var(--text-color);
     overflow-y: overlay;
-
 }
 
 
 
 
 
-
-
-
-// body {
-//     font-size: 14px;
-//     color: rgba(22, 24, 35, 1);
-//     background-color: rgba(255, 255, 255, 1);
-//     overscroll-behavior: contain;
-//     direction: ltr;
-//     -webkit-font-smoothing: antialiased;
-// }
-body {
-    min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-}
 
 
 

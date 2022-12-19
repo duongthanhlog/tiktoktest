@@ -1,0 +1,50 @@
+$footerHeight : 64px;
+$termsHeight : 62px;
+
+.register_wrap {
+    padding: 0 52px;
+}
+
+.register_wrap {
+    overflow-y: hidden;
+    height: 252px;
+    margin-bottom: $footerHeight;
+
+    &.show {
+        overflow-y: overlay;
+        height: unset;
+        margin-bottom: calc($footerHeight + $termsHeight);
+    }
+}
+
+.register_item {
+    user-select: none;
+    padding: 0 12px;
+    width: 100%;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    height: 44px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.load_more {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    bottom: 142px;
+    height: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icon {
+    position: absolute;
+    left: 12px;
+}

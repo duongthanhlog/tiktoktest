@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function AccountItem({ img, nickName, fullName, tick, followNumber, likeNumber, showPreview }) {
-    
+
     const renderPreview = (props) => {
         return (
             <div tabIndex="-1" {...props}>

@@ -16,6 +16,7 @@ function ModalProvider({children}) {
 
     const value = {
         openModal,
+        setOpenModal,
         handleOpenModal,
         handleCloseModal
     }

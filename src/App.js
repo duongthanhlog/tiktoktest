@@ -14,13 +14,12 @@ import {ModalContext} from "./Provider/ModalProvider";
 
 function App() {
   const {openModal} = useContext(ModalContext)
-  
   useEffect(() => {
     if(openModal) {
-        document.body.classList.add('hidden')
+        document.body.style.overflowY = 'hidden'
     }
     else {
-        document.body.classList.remove('hidden')
+        document.body.style.overflowY = 'overlay'
     }
   }, [openModal])
 

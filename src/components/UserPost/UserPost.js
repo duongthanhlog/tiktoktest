@@ -54,8 +54,10 @@ function UserPost({info}) {
     useEffect(() => {
         window.addEventListener('scroll', (e) => {
             if (window.scrollY > 100) {
+                setPlaying(true)
                 videoRef.current.play()
             } else {
+                setPlaying(false)
                 videoRef.current.pause()
             }
         });
