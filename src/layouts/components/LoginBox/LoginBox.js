@@ -1,7 +1,8 @@
 import Button from '~/components/Button';
 import classNames from 'classnames/bind';
 import styles from './LoginBox.module.scss';
-import Seperate from '../../../components/Seperate/Seperate';
+
+import { memo } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -18,4 +19,4 @@ function LoginBox() {
     );
 }
 
-export default LoginBox;
+export default memo(LoginBox);

@@ -3,12 +3,19 @@ $termsHeight : 62px;
 
 .login_wrap {
     padding: 0 52px;
-}
-
-.login_wrap {
     overflow-y: overlay ;
     margin-bottom: $footerHeight;
 }
+
+.back_btn {
+    background-color: transparent;
+    font-size: 2.4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
 
 .icon {
     position: absolute;

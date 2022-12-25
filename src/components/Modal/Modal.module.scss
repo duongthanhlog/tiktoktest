@@ -29,8 +29,8 @@ $termsHeight : 62px;
 .wrapper {
     background-color: white;
     position: absolute;
-    transform: scale(0);
-    transition: transform 0.4s ease;
+    transform: scale(0.1);
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 483px;
     height: 80%;
     padding: 48px 0 0;

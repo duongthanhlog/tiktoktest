@@ -1,11 +1,32 @@
 .wrapper {
     padding: 24px 0;
-    margin: 0 16px;
+    padding-right: var(--default-layout-horizontal-spacer);
+    position: relative;
 
-    .seperate {
-        width: 698px;
-        position: relative;
-        left: 72px;
-    }
+    // .seperate {
+    //     width: 706px;
+    //     position: relative;
+    //     left: 70px;
+    // }
+
+
 }
 
+.loading_icon {
+    color: gray;
+    position: absolute;
+    left: 50%;
+    font-size: 2.4rem;
+    animation: rotate 0.8s linear infinite;
+}
+
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

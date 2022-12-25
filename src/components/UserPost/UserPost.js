@@ -1,132 +1,197 @@
-import { faCommentDots, faHeart, faShare } from '@fortawesome/free-solid-svg-icons';
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useRef, useState, useEffect, useContext, useLayoutEffect } from 'react';
+import classNames from 'classnames/bind';
 
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause, faPlay, faCommentDots, faHeart, faShare, faFlag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Describe from './Describe';
 import Image from '~/components/Image';
-import VideoItem from './VideoItem';
-import Button from '~/components/Button';
-import video from '~/assests/video';
 import ActionButton from '../ActionButton/ActionButton';
 
 import styles from './UserPost.module.scss';
-import classNames from 'classnames/bind';
-
 import AccountPreview from '../AccountPreview';
+import ShareAction from '../ShareAction';
 
-import VolumeAction from '../VolumeAction/VolumeAction';
-import { UserCurrentContext } from '~/Provider';
-import HeadlessTippy from '@tippyjs/react/headless';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { MusicIcon, MuteIcon, UnmuteIcon } from '~/components/Icons';
 import { Link } from 'react-router-dom';
+
+import Button from '../Button';
+import HeadlessTippy from '@tippyjs/react/headless';
+import ProcessVolumn from '../ProcessVolumn';
+import config from '~/config';
+import VideoItem from './VideoItem';
+import { Popper } from '../Popper';
 
 const cx = classNames.bind(styles);
 
-function UserPost({info}) {
-    const {currentUser} = useContext(UserCurrentContext)
+function UserPost({ data }) {
+    const storageVolume = localStorage.getItem('volumeValue') ?? 0;
+
     const [playing, setPlaying] = useState(false);
-    const [liked, setLiked] = useState(false)
+    const [mute, setMute] = useState(true);
+    const [volumeValue, setVolumeValue] = useState(0);
 
     const videoRef = useRef();
-    const videoWrapRef = useRef();
+    const shareAcctionRef = useRef();
 
-    const handleChangePlay = () => {
-       setPlaying(!playing);
+    const togglePlayVideo = () => {
+        if (playing) {
+            pauseVideo();
+        } else {
+            playVideo();
+        }
     };
 
-    const toggleLiked = () => {
-        if(currentUser) {
-            setLiked(!liked)
-        }
-    }
+    const toggleMute = () => {
+        setMute(!mute);
+    };
 
-    useEffect(() => {
-        if (playing) {
-            videoRef.current.play();
+    const playVideo = () => {
+        videoRef.current.play();
+        setPlaying(true);
+    };
+
+    const pauseVideo = () => {
+        videoRef.current.pause();
+        setPlaying(false);
+    };
+
+    function playVideoWhenScroll() {
+        const bounding = videoRef.current.getBoundingClientRect();
+        if (bounding.top >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+            playVideo();
         } else {
-            videoRef.current.pause();
+            pauseVideo();
+            videoRef.current.currentTime = 0;
         }
-
-    }, [playing]);
-
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', playVideoWhenScroll);
+        return () => window.removeEventListener('scroll', playVideoWhenScroll);
+    });
 
     useEffect(() => {
-        window.addEventListener('scroll', (e) => {
-            if (window.scrollY > 100) {
-                setPlaying(true)
-                videoRef.current.play()
-            } else {
-                setPlaying(false)
-                videoRef.current.pause()
-            }
-        });
-    }, []);
+        if (mute) {
+            setVolumeValue(0);
+        } else {
+            setVolumeValue(storageVolume);
+        }
+    }, [mute]);
 
-
-    const renderPreview = () => {
-        return <div className={cx('preview')}>
-            <AccountPreview
-                img={info.avatar}
-                nickName={info.nickname}
-                fullName={info.first_name + ' ' + info.last_name}
-                tick={info.tick}
-                followNumber={info.followers_count}
-                likeNumber={info.likes_count}
-            />
-            <p className={cx('description')}>Theo dõi tôi ngay tại {info.website_url}</p>
-        </div>
-    }
+    const renderPreviewAccount = () => {
+        return (
+            <Popper>
+                <AccountPreview
+                    data={data.user}
+                    haveFooter
+                />
+            </Popper>
+        );
+    };
 
     return (
         <div className={cx('post')}>
             <HeadlessTippy
-                  interactive
-                  placement="bottom-start"
-                  offset={[-10, 5]}
-                  delay={[700, 0]}
-                  render={renderPreview} 
-                  appendTo={document.body}  
+                appendTo={document.body}
+                interactive
+                placement="bottom-start"
+                delay={[800, 100]}
+                render={renderPreviewAccount}
             >
-                    <a className={cx('link_img')} href="/">
-                        <Image
-                            className={cx('user_img')}
-                            src={info.avatar}
-                        />
-                    </a>
+                <Link className={cx('link_img')} to={`/@${data.user.nickname}`} state={data.user}>
+                    <Image className={cx('user_img')} src={data.user.avatar} />
+                </Link>
             </HeadlessTippy>
-            <div ref={videoWrapRef} className={cx('content')}>
-                <Describe info={info}/>
-                <div className={cx('video_wrap')}>
-                    <VideoItem
-                        loop
-                        autoPlay
-                        playing={playing}
-                        ref={videoRef}
-                        src={video}
-                        className={cx('video')}
-                        handleChangePlay={handleChangePlay}
-                        muted='muted'
-                    >
-                        <div className={cx('video_controls')}>
-                            <button onClick={handleChangePlay} className={cx('control_btn')}>
-                                {playing && <FontAwesomeIcon className={cx('pause_btn')} icon={faPause} />}
-                                {!playing && <FontAwesomeIcon className={cx('play_btn')} icon={faPlay} />}
-                            </button>
-                            <VolumeAction className={cx('hide')} videoRef={videoRef}/>
+
+            <div className={cx('content')}>
+                <div className={cx('desc_wrap')}>
+                    <div className={cx('user_desc')}>
+                        <div className={cx('user_name')}>
+                            <HeadlessTippy
+                                appendTo={document.body}
+                                interactive
+                                placement="bottom-start"
+                                delay={[800, 100]}
+                                render={renderPreviewAccount}
+                            >
+                                <Link to={config.routes.profile} className={cx('nick_name')} state={data.user}>
+                                    {data.user.nickname}
+                                    <FontAwesomeIcon className={cx('tick_icon')} icon={faCheckCircle} />
+                                </Link>
+                            </HeadlessTippy>
+
+                            <p className={cx('full_name')}>{data.user.first_name + ' ' + data.user.last_name}</p>
                         </div>
-                    </VideoItem>
+
+                        <p className={cx('user_text')}>
+                            {data.description}
+                            <a className={cx('hashtag')} href="">
+                                {data.allows.map((allow, index) => (
+                                    <strong key={index}>#{allow} </strong>
+                                ))}
+                            </a>
+                        </p>
+                        <a href="/" className={cx('music_info')}>
+                            <MusicIcon className={cx('icon')} width="1.6rem" height="1.6rem" />
+                            <strong>{data.music || 'Music song'} ❤️</strong>
+                        </a>
+                    </div>
+                    <Button primary outline className={cx('button')}>
+                        Theo dõi
+                    </Button>
+                </div>
+
+                <div className={cx('video_wrap')}>
+                    <div className={cx('wrapper')}>
+                        <button className={cx('report_btn')}>
+                            <FontAwesomeIcon className={cx('icon')} icon={faFlag} />
+                            <span>Báo cáo</span>
+                        </button>
+
+                        <VideoItem loop ref={videoRef} className={cx('video')} src={data.file_url || data.thumb_url} />
+
+                        <div className={cx('video_controls')}>
+                            <button onClick={togglePlayVideo} className={cx('control_btn')}>
+                                {playing ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
+                            </button>
+
+                            <HeadlessTippy
+                                interactive
+                                placement="top-end"
+                                hideOnClick={false}
+                                render={() => {
+                                    return (
+                                        <ProcessVolumn
+                                            setVolumeValue={setVolumeValue}
+                                            volumeValue={volumeValue}
+                                            setMute={setMute}
+                                            videoRef={videoRef}
+                                        />
+                                    );
+                                }}
+                            >
+                                <div className={cx('volumn_wrap')}>
+                                    <div onClick={toggleMute} className={cx('volumn_types', { mute: mute })}>
+                                        {!mute ? (
+                                            <UnmuteIcon width="2.4rem" height="2.4rem" className={cx('unmute_icon')} />
+                                        ) : (
+                                            <MuteIcon width="2.4rem" height="2.4rem" className={cx('mute_icon')} />
+                                        )}
+                                    </div>
+                                </div>
+                            </HeadlessTippy>
+                        </div>
+                    </div>
 
                     <div className={cx('actions')}>
-                        <ActionButton className={cx('liked_icon', {liked})} onClick={currentUser ? toggleLiked : () => {}} type={faHeart} mount="284.4k" />
-                        <ActionButton type={faCommentDots} mount="24.4k" />
-                        <ActionButton type={faShare} mount="12k" />
+                        <ActionButton className={cx('liked_icon')} type={faHeart} mount={data.likes_count} />
+                        <ActionButton type={faCommentDots} mount={data.comments_count} />
+                        <ShareAction>
+                            <ActionButton ref={shareAcctionRef} type={faShare} mount={data.shares_count} />
+                        </ShareAction>
                     </div>
                 </div>
             </div>
-            <Button primary outline small className={cx('button')}>
-                Follow
-            </Button>
         </div>
     );
 }

@@ -4,8 +4,8 @@
     bottom: 0;
     background-color: white;
     padding: 20px 4px 26px 8px;
+    overflow-y: hidden;
     position: fixed;
-    overflow: hidden;
 
     &::-webkit-scrollbar {
         width: 6px;
@@ -16,3 +16,4 @@
     }
 
 }
+

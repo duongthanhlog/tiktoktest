@@ -131,7 +131,7 @@ function Header({className}) {
                         </>
                     )}
 
-                    <Menu hideOnClick currentUser={currentUser} items={currentUser ? userMenu : MENU_ITEM} >
+                    <Menu currentUser={currentUser} items={currentUser ? userMenu : MENU_ITEM} >
                         {currentUser ? (
                             <Image
                                 className={cx('user_ava')}

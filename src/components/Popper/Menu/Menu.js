@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Popper } from '~/components/Popper';
 
 import Tippy from '@tippyjs/react/headless';
 import Header from './Header';
@@ -41,13 +41,14 @@ function Menu({ children, items = [], hideOnClick = false, currentUser }) {
     const renderResult = (attrs) => {
         return (
             <div className={cx('menu_list', { currentUser })} tabIndex="-1" {...attrs}>
-                <PopperWrapper className={cx('menu_popper')}>
+                <Popper className={cx('menu_popper')}>
                     {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
                     <div className={cx('menu_body')}>{renderItem()}</div>
-                </PopperWrapper>
+                </Popper>
             </div>
         );
     };
+
 
     return (
         <Tippy

@@ -3,59 +3,25 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
 
-import { useState, useRef, useImperativeHandle, forwardRef, useEffect } from 'react';
+import { forwardRef } from 'react';
+import { Link } from 'react-router-dom';
+import routes from '~/config/Routes';
 
 const cx = classNames.bind(styles);
 
 const VideoItem = forwardRef(({
-         children, 
          src, 
          className, 
-         handleChangePlay, 
-         handleChangeMute, 
-         playing, 
-         ...props 
+         children,
+         ...props
       }, ref) => {
 
-    const videoRef = useRef();    
-    
-    useImperativeHandle(
-        ref,
-        () => {
-            return {
-                changeVolume(value) {
-                    videoRef.current.volume = value
-                },
-                play() {
-                    videoRef.current.play();
-                },
-                pause() {
-                    videoRef.current.pause();
-                },
-                unMute() {
-                  videoRef.current.muted = false
-                },
-                mute() {
-                  videoRef.current.muted = true
-                },
-                videoRef() {
-                    return videoRef.current
-                }
-            };
-        },
-        [],
-    );
-
-    const classes = cx('wrapper', className);
+    const classes = cx('video', className);
     return (
-        <div className={classes}>
-            <button className={cx('report_btn')}>
-                <FontAwesomeIcon className={cx('icon')} icon={faFlag} />
-                <span>Báo cáo</span>
-            </button>
-            <video ref={videoRef} className={cx('video')} src={src} {...props}/>
+        <Link to={routes.video} className={cx('wrapper')}>
+            <video ref={ref} className={classes} src={src} {...props}/>
             {children}
-        </div>
+        </Link>
     );
 });
 

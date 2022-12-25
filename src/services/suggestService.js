@@ -1,6 +1,6 @@
 import * as httpRequest from '~/ultis/httpRequest';
 
-export const suggest = async (page = '1', per_page) => {
+export const suggest = async (page = '0', per_page) => {
     try {
         const res = await httpRequest.get(`users/suggested`, {
             params: {
@@ -15,5 +15,9 @@ export const suggest = async (page = '1', per_page) => {
         console.log(error)
     }
 };
+
+
+
+
 
 

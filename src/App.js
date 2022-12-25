@@ -4,6 +4,8 @@ import { DefaultLayout } from '~/layouts';
 import { Fragment, useContext, useEffect, useState } from 'react'
 import Modal from "./components/Modal";
 
+
+
 import styles from './components/GlobalStyles/GlobalStyles.module.scss'
 import classNames from "classnames/bind";
 
@@ -12,8 +14,13 @@ const cx = classNames.bind(styles)
 
 import {ModalContext} from "./Provider/ModalProvider";
 
+
 function App() {
+
+  
   const {openModal} = useContext(ModalContext)
+  
+
   useEffect(() => {
     if(openModal) {
         document.body.style.overflowY = 'hidden'
@@ -46,7 +53,7 @@ function App() {
                   
               })}
            </Routes>
-         <Modal/>
+          <Modal/>
       </div>
     </Router>
   );

@@ -5,89 +5,103 @@ import AccountItem from './AccountItem';
 import { useEffect, useState } from 'react';
 import * as SuggestAccountService from '~/services/suggestService';
 
+import SkeletonAccount from '../SkeletonAccount';
+
+
+
 
 const cx = classNames.bind(styles);
 
-function SuggestAccount({ label, currentUser, showPreview }) {
+function SuggestAccount({ label, currentUser }) {
     const [suggest, setSuggest] = useState([]);
     const [seeAll, setSeeAll] = useState(false);
-    const [moreUser, setMoreUser] = useState(5)
+    const [isLoading, setIsLoading] = useState(false)
+    const [moreUser, setMoreUser] = useState(5);
 
     useEffect(() => {
         const fetch = async () => {
             if (seeAll) {
+                setIsLoading(true)
                 const result = await SuggestAccountService.suggest(0, 20);
                 setSuggest(result);
+                setIsLoading(false)
             } 
             else {
-                const result = await SuggestAccountService.suggest(0, moreUser);
+                const result = await SuggestAccountService.suggest(0, 5);
                 setSuggest(result);
             }
         };
         fetch();
-
     }, [seeAll]);
 
     useEffect(() => {
         const fetch = async () => {
+                setIsLoading(true)
                 const result = await SuggestAccountService.suggest(0, moreUser);
-                setSuggest(result);
+                setSuggest(result)
+                setIsLoading(false)
         };
         fetch();
 
     }, [moreUser]);
 
 
+    const handleSeeMore = () => {
+        setMoreUser(prev => {
+            let result = prev
+            if(suggest.length < 20) {
+               result = prev += 5
+            } 
+            return result
+        })
+    };
+
+    const handleHideAll = () => {
+        setSeeAll(false);
+    };
+
+    const handleSeeAll = () => {
+        setSeeAll(true)
+    };
+
+
     const renderAccount = () => {
         return suggest.map((user) => (
             <AccountItem
                 key={user.id}
-                showPreview={showPreview}
-                img={user.avatar}
-                nickName={user.nickname}
-                fullName={user.first_name + ' ' + user.last_name}
-                tick={user.tick}
-                followNumber={user.followers_count}
-                likeNumber={user.likes_count}
+                data={user}
+                showPreview
             />
-        ))        
-    }
-
-    const handleSeeAll = () => {
-        setSeeAll(true)
-    }
-
-    const handleSeeLess = () => {
-        setSeeAll(false)
-    }
-
-    const handleSeeMore = () => {
-        setMoreUser(moreUser + 5)
-    }
-    const handleHideAll = () =>  {
-        setSeeAll(false)
+            ))
     }
 
     return (
-            <div className={cx('wrapper')}>
-                <p className={cx('label')}>{label}</p>
+        <div className={cx('wrapper')}>
+            <p className={cx('label')}>{label}</p>
+            
+            {renderAccount()}
+            {isLoading && <SkeletonAccount quanlity={1}/>}
 
-                {renderAccount()}
-
-                {!seeAll ? ( <p onClick={handleSeeAll} className={cx('more_btn')}>
-                       {!currentUser && 'Xem tất cả'}
-                </p>) :
-                <p onClick={handleSeeLess} className={cx('more_btn')}>
-                        Ẩn bớt
-                </p>}
-
-                {currentUser ? ( <p onClick={handleSeeMore} className={cx('more_btn')}>
-                        {currentUser && !seeAll && 'Xem thêm'}
-                </p>) :
+            {!seeAll ? (
+                <p onClick={ handleSeeAll} className={cx('more_btn')}>
+                    {!currentUser && !isLoading &&  'Xem tất cả' }
+                </p>
+            ) : (
                 <p onClick={handleHideAll} className={cx('more_btn')}>
-                        { currentUser && 'Ẩn tất cả'}
-                </p>}
-            </div>
+                   Ẩn bớt
+                </p>
+            )}
+
+            {currentUser && !isLoading ? (
+                <p onClick={handleSeeMore} className={cx('more_btn')}>
+                    {currentUser && 'Xem thêm'}
+                </p>
+            ) : (
+                <p onClick={handleHideAll} className={cx('more_btn')}>
+                    {currentUser && 'Ẩn tất cả'}
+                </p>
+            )}
+        </div>
     );
 }
 

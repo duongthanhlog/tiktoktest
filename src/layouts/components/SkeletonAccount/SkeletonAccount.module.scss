@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    margin: 8px 0;
+    margin-bottom: 16px;
+}
+
+.circle {
+    position: relative;
+    top: -3px;
+    margin-right: 10px;
+}
+
+.lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.line1 {
+    border-radius: 10px;
+    bottom: -4px;
+}
+
+.line2 {
+    bottom: 4px;
+}

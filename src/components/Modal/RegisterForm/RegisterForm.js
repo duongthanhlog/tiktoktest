@@ -16,7 +16,7 @@ function RegisterForm({ type }) {
         <div className={cx('register_wrap', { show : seeMore })}>
             <ul className={cx('register_list')}>
                 <h1>{type.heading}</h1>
-                {type.chanelItems.map((item, index) => {
+                {type.list.map((item, index) => {
                   const Icon = item.icon  
                   return( 
                         <li key={index} className={cx('register_item')}>

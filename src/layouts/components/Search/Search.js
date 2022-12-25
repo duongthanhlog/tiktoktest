@@ -5,11 +5,13 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Popper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons/Icon';
 import { useDebounce } from '../Hooks';
 import * as searchServices from '~/services/searchService';
+import { Link } from 'react-router-dom';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +24,17 @@ function Search() {
     const debounceValue = useDebounce(searchText, 800);
 
     const inputRef = useRef();
+    const submitBtnRef = useRef()
+    
+    useEffect(() => {
+        const handleEnter = (e) => {
+            if(e.key === 'Enter') {
+                submitBtnRef.current.click()
+            }
+        }
+        window.addEventListener('keydown', handleEnter)
+        return () => window.removeEventListener('keydown', handleEnter)
+    }, [])
 
     useEffect(() => {
         if (!searchText.trim()) {
@@ -41,6 +54,8 @@ function Search() {
         fetchApi();
     }, [debounceValue]);
 
+
+
     const handleChange = (e) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
@@ -58,24 +73,24 @@ function Search() {
         inputRef.current.focus();
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
 
+    const handleSearch = () => {
+        console.log(213)
+    }
 
     return (
         <div>
             <HeadlessTippy
                 interactive
                 visible={showResult && searchResult.length > 0}
-                render={(attrs) => (
-                    <div className={cx('search_result')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper>
+                render={() => (
+                    <div className={cx('search_result')}>
+                        <Popper className={cx('popper')}>
                             <h4 className={cx('search_title')}>Accounts</h4>
                             {searchResult.map((data) => (
                                 <AccountItem key={data.id} data={data} />
                             ))}
-                        </PopperWrapper>
+                        </Popper>
                     </div>
                 )}
                 onClickOutside={handleHideResult}
@@ -96,9 +111,9 @@ function Search() {
                     )}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                    <button className={cx('search_btn')} onMouseDown={handleSubmit}>
+                    <div ref={submitBtnRef} onClick={handleSearch} className={cx('search_btn')}>
                         <SearchIcon width="2.4rem" height="2.4rem" className={cx('search_icon')} />
-                    </button>
+                    </div>
                 </div>
             </HeadlessTippy>
         </div>

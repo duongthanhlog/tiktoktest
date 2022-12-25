@@ -5,16 +5,13 @@ import { QRicon, UserIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles)
 
-function QrForm({type, onBack}) {
+function QrForm({ info }) {
+    console.log('render-qr')
     return ( 
         <div className={cx('qr_form')}>
-            <button onClick={onBack} className={cx('back_btn')}>
-                {type.qrChildForm.backIcon}
-            </button>
-            <h1>{type.qrChildForm.heading}</h1>
             <div className={cx('body_qr')}>
                 <div className={cx('left_content')}>
-                    <Image className={cx('qr_img')} src={type.qrChildForm.qrImg} />
+                    <Image className={cx('qr_img')} src={info.qrImg} />
                     <p className={cx('tips')}>1.Mở ứng dụng TikTok trên thiết bị di động của bạn</p>
                     <p className={cx('tips')}>
                         2. Trên Hồ sơ, nhấn vào <UserIcon width="1.2rem" height="1.2rem" />
@@ -25,7 +22,7 @@ function QrForm({type, onBack}) {
                     </p>
                 </div>
                 <div className={cx('right_content')}>
-                    <Image className={cx('qr_video')} src={type.qrChildForm.tipImg} />
+                    <Image className={cx('qr_video')} src={info.tipImg} />
                 </div>
             </div>
         </div>

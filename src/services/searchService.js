@@ -17,4 +17,3 @@ export const search = async (q, type = 'less') => {
     }
 };
 
-

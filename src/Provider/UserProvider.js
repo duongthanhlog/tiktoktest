@@ -4,6 +4,7 @@ export const UserCurrentContext = createContext()
 
 function UserProvider( {children} ) {
     const [currentUser, setCurrentUser] = useState(false)
+
     
     const handleLogin = () => {
         setCurrentUser(true)

@@ -1,0 +1,33 @@
+.body_qr {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.left_content {
+    width: 206px;
+    margin-left: 10px;
+
+    .qr_img {
+        width: 100%;
+        background-color: rgb(240, 240, 240);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .tips  {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-bottom: 4px;
+    }
+}
+
+.right_content {
+    width: 210px;
+    margin-left: 32px;
+
+    .qr_video {
+        width: 105%;
+        height: 220px;
+    }
+}

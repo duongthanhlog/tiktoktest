@@ -1,43 +1,34 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import styles from './ProcessVolumn.module.scss';
 import classNames from 'classnames/bind';
-import UseLocalStorage from '~/layouts/components/Hooks/UseLocalStorage';
+import { UseLocalStorage } from '~/layouts/components/Hooks';
 
 const cx = classNames.bind(styles);
 
-const  ProcessVolumn = ({ className, videoRef, setMute, value, setValue, setPrevVolume }, ref) => {
-
+const ProcessVolumn = ({ className, setMute, volumeValue, videoRef, setVolumeValue, children }) => {
     const inputVolumeRef = useRef();
-    
-    useImperativeHandle(ref, () => {
-        return {
-            value,
-            setValue
-        }
-    })
-   
+
     useEffect(() => {
-        inputVolumeRef.current.style = `background-image: linear-gradient(to right, white ${value}%, gray ${value}%);`
-        let volumePercent = value / 100
-        videoRef.current.changeVolume(volumePercent)
-        videoRef.current.unMute()
-    }, [value])
+        inputVolumeRef.current.style = `background-image: linear-gradient(to right, white ${volumeValue}%, gray ${volumeValue}%);`;
+        let volumePercent = volumeValue / 100;
+        videoRef.current.volume = volumePercent;
+        videoRef.current.muted = false;
+    }, [volumeValue]);
 
-        
+
     function handleChange(e) {
-        let volumeValue = parseInt(e.target.value)
-        UseLocalStorage('volumeValue', volumeValue)
-        setValue(volumeValue)
-
-        if(volumeValue > 0) {
-            setPrevVolume(volumeValue)
-            setMute(false)
-        }
-        else {
-            setPrevVolume(0)
+        let volumeValue = parseInt(e.target.value);
+        setVolumeValue(volumeValue);
+        UseLocalStorage('volumeValue', volumeValue);
+        if(volumeValue === 0) {
             setMute(true)
         }
-    };
+        else {
+            setMute(false)
+        }
+    }
+
+
 
     const classes = cx('wrapper', className);
 
@@ -47,13 +38,13 @@ const  ProcessVolumn = ({ className, videoRef, setMute, value, setValue, setPrev
                 type="range"
                 min="0"
                 max="100"
-                value={value}
+                value={volumeValue}
                 ref={inputVolumeRef}
                 onInput={handleChange}
                 className={cx('process')}
             />
         </div>
     );
-}
+};
 
-export default forwardRef(ProcessVolumn);
+export default ProcessVolumn;

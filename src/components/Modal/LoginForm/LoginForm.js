@@ -1,36 +1,70 @@
 import styles from './LoginForm.module.scss';
 import classNames from 'classnames/bind';
 import QrForm from '../QrForm';
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import PhoneForm from '../PhoneForm';
+import TiktokIdForm from '../TiktokIdForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import LoginList from '../LoginList/LoginList';
 
 
 const cx = classNames.bind(styles);
 
-function LoginForm({ type, formQR, setFormQR, onBack }) {
+function LoginForm({ type, formQR, setFormQR, formPhone, setFormPhone}) {
+    const [view, setView] = useState({
+        tab : 'default',
+        heading : type.heading ,
+        child: {}
+    })
+
     
-    const gotoChild = (item) => {
-        if (item.title.includes('QR')) {
-            setFormQR(true);
+    useEffect(() => {
+        if(!formQR && !formPhone) {
+            setView({...view, tab :'default'})
+        }
+    }, [formQR, formPhone])
+
+    const handleBack = () => {
+        setView({...view, tab : 'default', heading : type.heading})
+    };
+
+    const renderForm = () => {
+        switch(view.tab) {
+            case 'default' :
+                return <LoginList onChangeView={handleChangeView} list={type.list}/>
+            case 'qrForm' :
+                return <QrForm type={type} info={view.child}/>
+            case 'phoneNumber' :
+                return <PhoneForm setView={setView}/>
+            case 'tiktokID' :
+                return <TiktokIdForm setView={setView}/>
+        }
+    }
+
+    const handleChangeView = (item) => {
+        switch(item.title) {
+            case 'Sử dụng mã QR' :
+                setFormQR(true)
+                setView({ tab: 'qrForm', heading : item.child.heading, child : item.child })
+                break;
+
+            case 'Số điện thoại / Email / TikTok ID' :
+                setFormPhone(true)
+                setView({ tab: 'phoneNumber', heading : item.child.heading })
+                break;
         }
     };
 
     return (
         <div className={cx('login_wrap')}>
-            {!formQR ? (
+            {view.tab !== 'default' && <button onClick={handleBack} className={cx('back_btn')}>
+                <FontAwesomeIcon icon={faChevronLeft} />
+            </button>}
                 <ul className={cx('login_list')}>
-                    <h1>{type.heading}</h1>
-                    {type.chanelItems.map((item, index) => {
-                        const Icon = item.icon;
-                        return (
-                            <li onClick={() => gotoChild(item)} key={index} className={cx('login_item')}>
-                                <Icon width="2rem" height="2rem" className={cx('icon')} />
-                                {item.title}
-                            </li>
-                        );
-                    })}
+                    <h1>{view.heading}</h1>
+                    {renderForm()}
                 </ul>
-            ) : (
-                <QrForm onBack={onBack} type={type}/>
-            )}
         </div>
     );
 }

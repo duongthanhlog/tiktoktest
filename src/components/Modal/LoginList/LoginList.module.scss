@@ -1,0 +1,39 @@
+$footerHeight : 64px;
+$termsHeight : 62px;
+
+.login_wrap {
+    padding: 0 52px;
+    overflow-y: overlay ;
+    margin-bottom: $footerHeight;
+}
+
+.login_item{
+    user-select: none;
+    padding: 0 12px;
+    width: 100%;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    height: 44px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.back_btn {
+    background-color: transparent;
+    font-size: 2.4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+
+.icon {
+    position: absolute;
+    left: 12px;
+}

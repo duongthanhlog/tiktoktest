@@ -1,5 +1,6 @@
 .wrapper {
     padding: 20px;
+    width: 320px;
 }
 
 .header {
@@ -15,7 +16,13 @@
     border-radius: 50%;    
 }
 
+.avatar_link {
+    position: relative;
+    top: 4px;
+}
+
 .nick_name {
+    display: block;
     strong {
         font-size: 1.8rem;
         font-weight: 700px;
@@ -29,6 +36,7 @@
 }
 
 .user_name {
+    display: block;
     color: rgb(136, 137, 150);
     font-size: 14px;
     line-height: 20px;
@@ -57,4 +65,11 @@
 
 .label, .label {
     margin-left: 6px;
+}
+
+
+.about {
+    border-top: 1px solid rgb(233, 233, 233);
+    padding-top: 14px;
+    margin-top: 10px;
 }

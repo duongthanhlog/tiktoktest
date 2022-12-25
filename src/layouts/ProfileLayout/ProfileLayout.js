@@ -11,7 +11,7 @@ function ProfileLayout( {children} ) {
         <div className={cx('wrapper')}>
             <Header className={cx('header')}/>
             <div className={cx('container')}>
-                <SideBar />
+                <SideBar className={cx('side_bar')}/>
                 <div className={cx('content')}>{children}</div>
             </div>
         </div>

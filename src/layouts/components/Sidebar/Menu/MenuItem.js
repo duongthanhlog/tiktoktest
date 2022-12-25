@@ -2,11 +2,14 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+
+
 const cx = classNames.bind(styles);
 
 function MenuItem({ title, to, icon, activeIcon }) {
     return (
         <NavLink
+            to={to}
             className={(nav) => cx('menu_item', { active: nav.isActive })}
             children={(nav) => {
                 const isActive = nav.isActive;
@@ -17,7 +20,6 @@ function MenuItem({ title, to, icon, activeIcon }) {
                         </>
                     );
             }}
-            to={to}
         >
         </NavLink>
     );

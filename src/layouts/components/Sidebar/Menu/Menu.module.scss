@@ -5,6 +5,7 @@
     border-radius: 4px;
     transition: hover 0.4s ease;
     color: var(--text-color);
+    font-family:  IBM Plex Sans;
 
     &:hover {
         background-color: #f8f8f8;
@@ -12,13 +13,6 @@
 
     &.active {
         color: var(--primary);
-        // .icon {
-        //     display: none;
-        // }
-
-        // .active_icon {
-        //     display: flex;
-        // }
     }
 }
 
@@ -29,6 +23,3 @@
 }
 
 
-// .active_icon {
-//     display: none;
-// }
