@@ -1,20 +1,70 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: var(--hover-share-option-background)
+    }
+
+    .theme_area {
+        position: relative;
+        margin-right: 20px;
+        width: 66px;
+        height: 24px;
+        overflow: hidden;
+        background-color: gray;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease;
+
+        
+
+        &.active {
+            background-color: rgb(65, 214, 97);
+        }
+        
+        .button {
+            transition: all 0.2s ease;
+            display: block;
+            position: absolute;
+            width: 20px;
+            height:20px;
+            border-radius: 100%;
+            transform: translateX(2px);
+            background-color: white;
+        }
+
+        &.active .button{
+            transform: translateX(108%);
+         }
+    }
+}
+
 .menu_list {
     width: 224px;
     position: relative;
+    cursor: pointer;
+    right: -4px;
+    top: 0;
+
     .menu_item,
     .menu_item + .title {
         margin: 0;
     }
+
+   
     
     &.currentUser {
         &::before {
             content: '';
             display: block;
             position: absolute;
-            top: -12px;
-            right: 18px;
+            top: -15px;
+            right: 21px;
             border: 10px solid;
-            border-color: transparent transparent white transparent;
+            border-color: transparent transparent var(--background-search-result) transparent;
             z-index: 10;
         }
     }
@@ -24,12 +74,13 @@
         display: block;
         position: absolute;
         top: -15px;
-        right: 12px;
+        right: 16px;    
         border: 10px solid;
-        border-color: transparent transparent white transparent;
+        border-color: transparent transparent var(--background-search-result) transparent;
         z-index: 10;
     }
 }
+
 
 
   
@@ -48,17 +99,15 @@
     justify-content: flex-start;
     border-radius: 0;
     font-weight: 600;
-    color: rgb(97, 96, 96);
-    padding: 10px 8px;
+    color: var(--text-color);
+    padding: 12px;
 
     &.separate {
-        border-top: 1px solid rgba(22, 24, 35, 0.09);
-    }
-
-    &:hover {
-        background-color: rgba(22, 24, 35, 0.03);;
+        border-top: 1px solid var(--border-sperate-color);
     }
 }
+
+
 
 .header {
     position: relative;

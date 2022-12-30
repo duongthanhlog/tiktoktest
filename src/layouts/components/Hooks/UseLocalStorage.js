@@ -1,8 +1,7 @@
 function UseLocalStorage(key, value) {
-    JSON.stringify(localStorage.setItem(key, value))
-    JSON.parse(localStorage.getItem(key))
-
-    return value
+    localStorage.setItem(key, JSON.stringify(value))
+    const output = JSON.parse(localStorage.getItem(key))
+    return output
 }
 
 export default UseLocalStorage;

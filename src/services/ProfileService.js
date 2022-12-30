@@ -6,7 +6,7 @@ export const profile = async (nickName = '') => {
         const res = await httpRequest.get(`users/@${nickName}`);
         return res.data;
     }
-     catch (error) {
+    catch (error) {
         console.log(error)
     }
 };

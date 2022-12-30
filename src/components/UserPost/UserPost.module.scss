@@ -22,8 +22,8 @@ $transitionControls:0.3s ease;
 
 .wrapper {
     position: relative;
-    width: 270px;
-    height: 462px;
+    width: 265px;
+    height: 473px;
 
     a:hover {
         text-decoration: underline;
@@ -140,6 +140,7 @@ $transitionControls:0.3s ease;
     align-items: center;
     font-size: 1.4rem;
     line-height: 2.8rem;
+    color: var(--text-color);
 
     .tick_icon {
         color: #20d5ec;
@@ -168,6 +169,7 @@ $transitionControls:0.3s ease;
     font-weight: 700;
     font-size: 1.8rem;
     line-height: 25px;
+    color: var(--text-color);
 
     &:hover {
         text-decoration: underline;
@@ -176,6 +178,7 @@ $transitionControls:0.3s ease;
 }
 
 .user_text {
+    color: var(--sub-text-color);
     .hashtag {
         margin-left: 4px;
     }

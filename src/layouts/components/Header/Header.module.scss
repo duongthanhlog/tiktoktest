@@ -5,8 +5,8 @@
     --search-bottom-width:52px;
     width: 100%;
     height: var(--default-layout-header-height);
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
-    background-color: white;
+    box-shadow: var(--box-shadow-header);
+    background-color: var(--background-theme);
     display: flex;
     justify-content: center;
     position: fixed;
@@ -30,10 +30,17 @@
 }
 
 .menu_sub {
-    margin-left: 28px;
-    padding: 4px 8px;
+    padding: 4px 10px;
     font-size: 2rem;
     cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+
+    .menu_sub-icon {
+        margin-left: 20px;
+        margin-right: 10px;
+    }
 }
 
 
@@ -44,11 +51,10 @@
 
 
 
-
 .action_btn {
     position: relative;
     background-color: transparent;
-    color: #161823;
+    color: var(--text-color);
     padding: 4px 12px;
     cursor: pointer;
 }
@@ -69,7 +75,6 @@
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 12px;
     cursor: pointer;
 }
 

@@ -10,8 +10,6 @@ import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons/Icon';
 import { useDebounce } from '../Hooks';
 import * as searchServices from '~/services/searchService';
-import { Link } from 'react-router-dom';
-import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -24,17 +22,17 @@ function Search() {
     const debounceValue = useDebounce(searchText, 800);
 
     const inputRef = useRef();
-    const submitBtnRef = useRef()
-    
+    const submitBtnRef = useRef();
+
     useEffect(() => {
         const handleEnter = (e) => {
-            if(e.key === 'Enter') {
-                submitBtnRef.current.click()
+            if (e.key === 'Enter') {
+                submitBtnRef.current.click();
             }
-        }
-        window.addEventListener('keydown', handleEnter)
-        return () => window.removeEventListener('keydown', handleEnter)
-    }, [])
+        };
+        window.addEventListener('keydown', handleEnter);
+        return () => window.removeEventListener('keydown', handleEnter);
+    }, []);
 
     useEffect(() => {
         if (!searchText.trim()) {
@@ -54,8 +52,6 @@ function Search() {
         fetchApi();
     }, [debounceValue]);
 
-
-
     const handleChange = (e) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
@@ -73,26 +69,29 @@ function Search() {
         inputRef.current.focus();
     };
 
+    const renderSearchResult = () => {
+        return (
+            <div className={cx('search_result')}>
+                <Popper className={cx('popper')}>
+                    <h4 className={cx('search_title')}>Accounts</h4>
+                    {searchResult.map((data) => {
+                        return <AccountItem key={data.id} data={data} />;
+                    })}
+                </Popper>
+            </div>
+        );
+    };
 
     const handleSearch = () => {
-        console.log(213)
-    }
+        console.log(213);
+    };
 
     return (
         <div>
             <HeadlessTippy
                 interactive
                 visible={showResult && searchResult.length > 0}
-                render={() => (
-                    <div className={cx('search_result')}>
-                        <Popper className={cx('popper')}>
-                            <h4 className={cx('search_title')}>Accounts</h4>
-                            {searchResult.map((data) => (
-                                <AccountItem key={data.id} data={data} />
-                            ))}
-                        </Popper>
-                    </div>
-                )}
+                render={renderSearchResult}
                 onClickOutside={handleHideResult}
             >
                 <div className={cx('search')}>

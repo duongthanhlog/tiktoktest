@@ -21,6 +21,7 @@
             cursor: pointer;
             height: 40px;
             padding: 6px;
+            color: var(--text-color);
         }
 
         .more_btn {
@@ -28,9 +29,12 @@
             font-size: inherit;
             cursor: pointer;
             padding: 6px;
+            color: var(--text-color);
         }
     }
 }
+
+
 
 .basic {
     display: flex;
@@ -56,6 +60,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         text-align: left;
+        color: var(--text-color);
     }
     
     .full_name {
@@ -66,6 +71,7 @@
         height: 25px;
         overflow: hidden;
         max-width: 415px;
+        color: var(--sub-text-color);
     }
     
     .button {
@@ -89,6 +95,9 @@
     .count {
         font-size: 1.8rem;
         line-height: 2.5rem;
+        span {
+            color: var(--sub-text-color);
+        }
     }
 
     .count + .count{
@@ -97,6 +106,7 @@
 
     .number {
         display: inline-block;
+        color: var(--text-color);
     }
 
 }
@@ -108,6 +118,7 @@
     white-space: pre-line;
     text-align: left;
     margin: 10px 0;
+    color: var(--text-color);
 }
 
 .link {
@@ -139,15 +150,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: rgba(22, 24, 35, 0.5);
+        color: var(--sub-text-color);
         cursor: pointer;
         font-weight: 600;
         line-height: 2.5rem;
 
         &.active {
-            color: rgb(22, 24, 35);
-
-           
+            color: var(--text-color)
         }
     }
 
@@ -159,7 +168,7 @@
 }
 
 .line_wrap {
-    background-color: rgb(219, 219, 219);
+    background-color: var(--line-profile-wrap);
     position: absolute;
     width: 100%;
     height: 2px;
@@ -175,7 +184,7 @@
     width: 50%;
     transition: left 0.3s ease;
     height: 2px;
-    background-color: black;
+    background-color: var(--line-profile-background);
 }
 
 
@@ -195,7 +204,7 @@
     width: 180px;
     right: -8px;
     top: -16px;
-    background: rgb(255, 255, 255);
+    background: var(--background-search-result);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     border-radius: 8px;
     padding: 8px 0;
@@ -210,7 +219,7 @@
         left: 50%;
         transform: translateX(-50%);
         height: 1px;
-        background-color: rgb(235, 235, 235);
+        background-color: var(--border-sperate-color);
     }
 
     .option {
@@ -220,11 +229,102 @@
         cursor: pointer;
 
         &:hover {
-            background-color: rgb(247, 247, 247);
+            background-color: var(--hover-option-header);
         }
 
         span {
             margin-left: 12px;
+            color: var(--text-color);
+            font-size: 1.6rem;
+        }
+
+        .icon {
+            color: var(--text-color);
+            font-size: 1.6rem;
         }
     }
+}
+
+.video{
+    width: 208px;
+    height: 275px;
+    
+}
+
+.video_wrap {
+    position: relative;
+}
+
+.feed_tabs {
+    margin-bottom: 8px;
+}
+
+.videos_container {
+    position: relative;
+    display: grid;
+    gap: 24px 16px;
+    grid-template-columns: repeat(auto-fill, minmax(184px, 1fr));
+}
+
+.views {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    width: 100%;
+    padding: 20px 16px;
+
+    strong {
+        color: white;
+        margin-left: 8px;
+        pointer-events: none;
+    }
+}
+
+.liked_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    height: 438px;
+
+    .lock_icon {
+        color: #b0b0b4;
+    }
+
+    .title {
+        font-size: 2.4rem;
+        line-height: 2.8rem;
+        font-family: "IBM Plex Sans", SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 700;
+        margin-top: 24px;
+        color: var(--text-color);
+    }
+
+    .description {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        margin-top: 8px;
+        color:var(--sub-text-color)
+    }
+}
+
+
+.share_profile-list {
+    position: absolute;
+    top: 55px;
+    left: -242px;
+}
+
+
+.options_wrap::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -32px;
+    right: 6px; 
+    border: 10px solid;
+    border-color: transparent transparent var(--background-search-result) transparent;
+    z-index: 10;
 }

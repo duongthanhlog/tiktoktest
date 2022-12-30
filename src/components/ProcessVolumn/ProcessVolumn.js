@@ -28,8 +28,6 @@ const ProcessVolumn = ({ className, setMute, volumeValue, videoRef, setVolumeVal
         }
     }
 
-
-
     const classes = cx('wrapper', className);
 
     return (

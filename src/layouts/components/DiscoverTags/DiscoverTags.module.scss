@@ -6,6 +6,12 @@
 
 .label {
     padding-bottom: 12px;
+    color: var(--heading-title-sidebar-color);
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
 }
 
 .tags {
@@ -23,15 +29,18 @@
         margin-bottom: 12px;
         margin-right: 8px;
         cursor: pointer;
+        color: var(--sub-text-color);
+        background-color: var(--background-tag-sidebar);
+        transition: all 0.2s ease;
 
         &:hover {
-            background-color: #f8f8f8;
+            background-color: var(--background-color-tag-hover);
         }
     }
 
     .icon {
         flex-shrink: 0;
-        color: rgba(22, 24, 35, 1);
+        color: var(--sub-text-color);;
     }
     
    

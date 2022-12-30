@@ -2,17 +2,19 @@
     width: var(--sidebar-width);   
     top: var(--default-layout-header-height);
     bottom: 0;
-    background-color: white;
+    background-color: var(--background-theme);
     padding: 20px 4px 26px 8px;
-    overflow-y: hidden;
+    overflow-y: scroll;
     position: fixed;
+    z-index: 10;
 
-    &::-webkit-scrollbar {
-        width: 6px;
+    &::-webkit-scrollbar-thumb {
+       width: 8px;
+       background-color: transparent;
     }
 
-    &:hover {
-        overflow-y: overlay;
+    &:hover::-webkit-scrollbar-thumb {
+       background-color: var(--scroll-thumb-background);
     }
 
 }

@@ -1,7 +1,7 @@
 import styles from './Modal.module.scss';
 import classNames from 'classnames/bind';
 import { useState, useContext, useEffect } from 'react';
-import { ModalContext } from '~/Provider';
+import { ModalContext, ThemeContext } from '~/Provider';
 
 import {
     AppleIcon,
@@ -23,98 +23,100 @@ import RegisterForm from './RegisterForm';
 
 const cx = classNames.bind(styles);
 
-const modalTypes = {
-    login: {
-        heading: 'Đăng nhập Tiktok',
-        list: [
-            {
-                icon: QRicon,
-                title: 'Sử dụng mã QR',
-                child: {
-                    heading: 'Đăng nhập bằng mã QR',
-                    qrImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
-                    tipImg: 'https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/webapp/main/webapp-desktop/b6d3cc69d3525571aef0.gif',
-                },
-            },
-            {
-                icon: UserIcon,
-                title: 'Số điện thoại / Email / TikTok ID',
-                child: {
-                    heading: 'Đăng nhập',
-                },
-            },
-            {
-                icon: FacebookIcon,
-                title: 'Tiếp tục với Facebook',
-            },
-            {
-                icon: GoogleIcon,
-                title: 'Tiếp tục với Google',
-            },
-            {
-                icon: TwitterIcon,
-                title: 'Tiếp tục với Twitter',
-            },
-            {
-                icon: LineIcon,
-                title: 'Tiếp tục với Line',
-            },
-            {
-                icon: KakaotalkIcon,
-                title: 'Tiếp tục với Kakaotalk',
-            },
-            {
-                icon: AppleIcon,
-                title: 'Tiếp tục với Apple',
-            },
-            {
-                icon: InstagramIcon,
-                title: 'Tiếp tục với Instagram',
-            },
-        ],
-        footer: 'Bạn không có tài khoản?',
-        button: 'Đăng ký',
-        // qrChildForm: {
-        //     heading: 'Đăng nhập bằng mã QR',
-        //     backIcon: <FontAwesomeIcon icon={faChevronLeft} />,
-        //     qrImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
-        //     tipImg: 'https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/webapp/main/webapp-desktop/b6d3cc69d3525571aef0.gif',
-        // },
-    },
-    register: {
-        heading: 'Đăng ký Tiktok',
-        list: [
-            {
-                icon: UserIcon,
-                title: 'Số điện thoại / Email / TikTok ID',
-            },
-            {
-                icon: FacebookIcon,
-                title: 'Tiếp tục với Facebook',
-            },
-            {
-                icon: GoogleIcon,
-                title: 'Tiếp tục với Google',
-            },
-            {
-                icon: TwitterIcon,
-                title: 'Tiếp tục với Twitter',
-            },
-            {
-                icon: LineIcon,
-                title: 'Tiếp tục với Line',
-            },
-            {
-                icon: KakaotalkIcon,
-                title: 'Tiếp tục với Kakaotalk',
-            },
-        ],
-        footer: 'Bạn đã có tài khoản?',
-        button: 'Đăng nhập',
-    },
-};
 
 function Modal() {
+    const {darkTheme} = useContext(ThemeContext)
+    console.log(darkTheme)
+    const modalTypes = {
+        login: {
+            heading: 'Đăng nhập Tiktok',
+            list: [
+                {
+                    icon: QRicon,
+                    title: 'Sử dụng mã QR',
+                    child: {
+                        heading: 'Đăng nhập bằng mã QR',
+                        qrImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
+                        tipImg: darkTheme ? 'https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/webapp/main/webapp-desktop/c65e7ef361482406e0ea.gif' :'https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/webapp/main/webapp-desktop/b6d3cc69d3525571aef0.gif' ,
+                    },
+                },
+                {
+                    icon: UserIcon,
+                    title: 'Số điện thoại / Email / TikTok ID',
+                    child: {
+                        heading: 'Đăng nhập',
+                    },
+                },
+                {
+                    icon: FacebookIcon,
+                    title: 'Tiếp tục với Facebook',
+                },
+                {
+                    icon: GoogleIcon,
+                    title: 'Tiếp tục với Google',
+                },
+                {
+                    icon: TwitterIcon,
+                    title: 'Tiếp tục với Twitter',
+                },
+                {
+                    icon: LineIcon,
+                    title: 'Tiếp tục với Line',
+                },
+                {
+                    icon: KakaotalkIcon,
+                    title: 'Tiếp tục với Kakaotalk',
+                },
+                {
+                    icon: AppleIcon,
+                    title: 'Tiếp tục với Apple',
+                },
+                {
+                    icon: InstagramIcon,
+                    title: 'Tiếp tục với Instagram',
+                },
+            ],
+            footer: 'Bạn không có tài khoản?',
+            button: 'Đăng ký',
+            // qrChildForm: {
+            //     heading: 'Đăng nhập bằng mã QR',
+            //     backIcon: <FontAwesomeIcon icon={faChevronLeft} />,
+            //     qrImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png',
+            //     tipImg: 'https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/webapp/main/webapp-desktop/b6d3cc69d3525571aef0.gif',
+            // },
+        },
+        register: {
+            heading: 'Đăng ký Tiktok',
+            list: [
+                {
+                    icon: UserIcon,
+                    title: 'Số điện thoại / Email / TikTok ID',
+                },
+                {
+                    icon: FacebookIcon,
+                    title: 'Tiếp tục với Facebook',
+                },
+                {
+                    icon: GoogleIcon,
+                    title: 'Tiếp tục với Google',
+                },
+                {
+                    icon: TwitterIcon,
+                    title: 'Tiếp tục với Twitter',
+                },
+                {
+                    icon: LineIcon,
+                    title: 'Tiếp tục với Line',
+                },
+                {
+                    icon: KakaotalkIcon,
+                    title: 'Tiếp tục với Kakaotalk',
+                },
+            ],
+            footer: 'Bạn đã có tài khoản?',
+            button: 'Đăng nhập',
+        },
+    };
     const { openModal, handleCloseModal } = useContext(ModalContext)
     
     const [register, setRegister] = useState(false);

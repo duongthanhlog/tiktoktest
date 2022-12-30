@@ -73,7 +73,7 @@ const socialsShare = [
     },
 ];
 
-function ShareAction({ children, ...props }) {
+function ShareAction({ children, className, ...props }) {
 
     const listWrapperRef = useRef();
     const seeMoreBtnRef = useRef();
@@ -85,10 +85,10 @@ function ShareAction({ children, ...props }) {
         listWrapperRef.current.style.overflowY = overflowY;
     };
 
-    
+    const classes = cx('list_wrapper', className)
     const renderListShare = () => {
         return (
-            <div ref={listWrapperRef} className={cx('list_wrapper')}>
+            <div ref={listWrapperRef} className={classes}>
                 <div className={cx('list_share')}>
                     {socialsShare.map((item, index) => {
                         const Icon = item.icon;
@@ -113,7 +113,7 @@ function ShareAction({ children, ...props }) {
 
     return (
         <HeadlessTippy
-            appendTo={document.body}
+            delay={[0, 500]}
             interactive
             hideOnClick={false}
             render={renderListShare}

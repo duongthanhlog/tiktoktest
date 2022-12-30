@@ -88,7 +88,7 @@ function UserPost({ data }) {
             </Popper>
         );
     };
-
+    
     return (
         <div className={cx('post')}>
             <HeadlessTippy
@@ -98,7 +98,7 @@ function UserPost({ data }) {
                 delay={[800, 100]}
                 render={renderPreviewAccount}
             >
-                <Link className={cx('link_img')} to={`/@${data.user.nickname}`} state={data.user}>
+                <Link className={cx('link_img')} to={`@${data.user.nickname}`} state={data.user}>
                     <Image className={cx('user_img')} src={data.user.avatar} />
                 </Link>
             </HeadlessTippy>

@@ -23,10 +23,10 @@
 
 .nick_name {
     display: block;
+
     strong {
         font-size: 1.8rem;
         font-weight: 700px;
-        line-height: 2.2rem;
     }
 }
 
@@ -37,9 +37,9 @@
 
 .user_name {
     display: block;
-    color: rgb(136, 137, 150);
+    color:  var(--sub-text-color);
     font-size: 14px;
-    line-height: 20px;
+    line-height: 2rem;
     font-weight: 600;
 }
 
@@ -59,8 +59,12 @@
     margin-left: 12px;
 }
 
+.value {
+    color: var(--text-color);
+}
+
 .label {
-    color: #161823bf;
+    color: var(--sub-text-color);
 }
 
 .label, .label {
@@ -72,4 +76,5 @@
     border-top: 1px solid rgb(233, 233, 233);
     padding-top: 14px;
     margin-top: 10px;
+    color: var(--text-color);
 }

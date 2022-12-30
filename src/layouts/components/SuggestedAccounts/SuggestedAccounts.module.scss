@@ -1,5 +1,17 @@
 .wrapper {
-    padding: 16px 0 2px;
+    position: relative;
+    padding: 16px 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        display: block;
+        width: 95%;
+        height: 1px;
+        background-color: var(--border-sperate-color);
+    }
 }
 
 .label {
@@ -8,7 +20,11 @@
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 2rem;
-    color: rgba(78, 81, 94, 0.75);;
+    color: var(--heading-title-sidebar-color)
+}
+
+.popper {
+    background-color: var(--account-preview-background);
 }
 
 .account_item {
@@ -19,7 +35,7 @@
     cursor: pointer;
 
     &:hover {
-        background: rgba(22, 24, 35, 0.03);
+        background: var(--color-hover-nav-sidebar);
     }
 }
 
@@ -36,7 +52,7 @@
 }
 
 .nick_name {
-    color: rgb(22, 24, 35);
+    color: var(--text-color);
     font-family: "IBM Plex Sans", SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -46,12 +62,14 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    margin-bottom: 4px;
+
     strong {
         margin-right: 4px;
     }
 }
 .user_name{
-    color: rgba(22, 24, 35, 0.75);
+    color: var(--text-color);
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;

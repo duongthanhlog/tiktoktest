@@ -1,3 +1,18 @@
+.menu {
+    position: relative;
+    padding: 0px 8px 16px 8px;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        display: block;
+        width: 95%;
+        height: 1px;
+        background-color: var(--border-sperate-color);
+    }
+}
+
 .menu_item {
     display: flex;
     align-items: center;
@@ -8,7 +23,7 @@
     font-family:  IBM Plex Sans;
 
     &:hover {
-        background-color: #f8f8f8;
+        background-color: var(--menu-sidebar-hover-background);
     }
 
     &.active {
@@ -20,6 +35,7 @@
     margin-left: 8px;
     font-weight: 700;
     font-size: 1.8rem;
+    user-select: none;
 }
 
 

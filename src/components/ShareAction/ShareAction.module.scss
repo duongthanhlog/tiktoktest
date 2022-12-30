@@ -1,16 +1,19 @@
 // list share icon
 .list_wrapper {
-    position: relative;
+    position: absolute;
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 22px;
-    width: 280px;
-    height: 280px;
-    background-color: white;
+    background: var(--action-share-background);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     border-radius: 8px;
+    width: 280px;
+    height: 280px;
     overflow: hidden;
+    bottom: 100%;
+    left: -50px;
 }
+
 
 .wrapper::-webkit-scrollbar-thumb  {
     width: 8px;
@@ -31,23 +34,25 @@
     width: 100%;
     padding: 0 16px;
     height:30px;
-    background-color: white;
+    color: var(--text-color);
+    background-color: var(--action-share-background);
     cursor: pointer;
 
     &:hover {
-        background-color: rgb(248, 248, 248); 
+        background-color: var(--more-shareBtn-background-hover); 
     }
 }
 
 .item_share {
     user-select: none;
     padding: 12px 16px;
-    cursor: pointer;
     display: flex;
     align-items: center;
+    color: var(--text-color);
+    cursor: pointer;
 
     &:hover {
-        background-color: rgb(248, 248, 248); 
+        background-color: var(--hover-share-option-background); 
     }
 
     .title {

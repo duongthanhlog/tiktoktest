@@ -8,12 +8,11 @@ import Live from "~/pages/Live"
 import { DefaultLayout, HeaderOnly } from "~/layouts"
 import ProfileLayout from "~/layouts/ProfileLayout"
 import Video from "~/pages/Video"
-import FollowingLayout from "~/layouts/FollowingLayout"
 
 
 export const publicRoutes = [
     { path: config.routes.home, component: Home, layout : DefaultLayout },
-    { path: config.routes.following, component: Following, layout : FollowingLayout},
+    { path: config.routes.following, component: Following, layout : DefaultLayout},
     { path: config.routes.profile, component: Profile, layout : ProfileLayout},
     { path: config.routes.upload, component: Upload, layout : HeaderOnly},
     { path: config.routes.search, component: Search, layout : null},

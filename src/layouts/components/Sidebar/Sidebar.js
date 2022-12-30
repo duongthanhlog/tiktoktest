@@ -20,7 +20,7 @@ import SidebarFooter from '../SidebarFooter';
 
 const cx = classNames.bind(styles);
 
-function SideBar({ className, hideSuggestFollowing }) {
+function SideBar({ className }) {
     const { currentUser } = useContext(UserCurrentContext);
 
     const classes = cx('wrapper', className);
@@ -42,18 +42,13 @@ function SideBar({ className, hideSuggestFollowing }) {
                 />
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveIconActive />} />
             </Menu>
-            <Seperate />
+
             {!currentUser && <LoginBox />}
-            {!currentUser && <Seperate />}
 
-            {!hideSuggestFollowing && <SuggestAccount label="Tài khoản được đề xuất" moreButton="Xem Tất cả" showPreview/>}
-
-            {currentUser && (
-                <SuggestAccount label="Các tài khoản đang follow" moreButton="Xem thêm" currentUser={currentUser} />
-            )}
-            {currentUser && <Seperate />}
+            <SuggestAccount label="Tài khoản được đề xuất" moreButton="Xem Tất cả" showPreview /> 
+            {currentUser && <SuggestAccount label="Các tài khoản đang follow" moreButton="Xem thêm"/>}
+            
             <DiscoverTag label="Khám phá" />
-            <Seperate />
             <SidebarFooter />
         </div>
     );

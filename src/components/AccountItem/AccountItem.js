@@ -5,16 +5,15 @@ import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { Link } from 'react-router-dom';
 import Image from '../Image';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
 function AccountItem({ data }) {
     return (
         <Link
-            to={{
-                pathname: `/@${data.nickname}`,
-                state: data,
-            }}
+            to={`@${data.nickname}`}
+            state={data}
             className={cx('wrapper')}
         >
             <Image className={cx('avatar')} src={data.avatar} alt={data.last_name} />

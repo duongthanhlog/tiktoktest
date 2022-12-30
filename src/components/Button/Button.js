@@ -4,9 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./Button.module.scss";
 import { useContext } from 'react';
 import { ModalContext, UserCurrentContext } from '~/Provider';
-import { LoadingIcon } from '../Icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 
 const cx = classNames.bind(styles);
 

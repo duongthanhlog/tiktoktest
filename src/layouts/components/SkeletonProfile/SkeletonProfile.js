@@ -11,8 +11,8 @@ function SkeletonProfile() {
                 <Skeleton circle width={118} height={118}/>
             </div>
             <div className={cx('lines')}>
-                <Skeleton className={cx('line')} count={1} width={300} height={24}/>
-                <Skeleton className={cx('line')} count={1} width={200}/>
+                <Skeleton className={cx('line')} count={1} width={180} height={24}/>
+                <Skeleton className={cx('line')} count={1} width={180} height={24}/>
             </div>
         </div>
     );

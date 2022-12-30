@@ -8,7 +8,7 @@
 
 .search {
     height: var(--search-height);
-    background: #f1f1f2;
+    background: var(--search-background);
     border-radius: var(--search-border-radius);
     padding-left: 16px;
     display: flex;
@@ -19,7 +19,7 @@
         flex: 1;
         height: 100%;
         font-size: 1.6rem;
-        color: var(--black);
+        color: var(--text-color);
         background-color: transparent;
         margin-right: calc(var(--search-bottom-width) - 12px);
         caret-color: red;
@@ -27,7 +27,11 @@
     }
 
     input:not(:placeholder-shown) ~ .search_btn {
-        color:rgba(0, 0, 0, 0.75) ;
+        color:var(--color-search) ;
+    }
+
+    input::placeholder {
+        color: var(--color-search);
     }
 
     &::after {
@@ -36,12 +40,12 @@
         top: var(--search-top-spacer);
         right: var(--search-bottom-width);
         height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        background-color: rgba(22, 24, 35, .12);
+        background-color: var(--sperate-search-color);
         width: 1px;
     }
 
     &:focus-within {
-        border-color: #c5c6c9;
+        border-color: var(--focus-search-border-color);
     }
 }
 
@@ -60,9 +64,11 @@
     line-height: 20px;
     font-weight: 600;
     color: rgba(22, 24, 35, 0.5);
+    color: var(--heading-search-result-color);
 }
 .clear, .loading {
-    color: rgba(22, 24, 35, 0.34);
+    color: var(--clear-search-color);
+    background-color: transparent;
     position: absolute;
     right: var(--search-bottom-width);
     top: 50%;
@@ -89,19 +95,20 @@
     height: 100%;
     border-top-right-radius: var( --search-border-radius);
     border-bottom-right-radius: var( --search-border-radius);
-    color: rgba(86, 88, 95, 0.75);
+    color: var(--color-search-icon);
     font-size: 1.9rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--search-icon-color);
 
     &:hover {
-        background-color: rgb(235, 235, 235);
+        background-color: var(--search-btn-background-hover);
         cursor: pointer;
     }
 
     &:active {
-        background-color: rgba(228, 228, 228, 0.801);
+        background-color: var(--search-background);
     }
 }
 

@@ -6,7 +6,6 @@ import { QRicon, UserIcon } from '~/components/Icons';
 const cx = classNames.bind(styles)
 
 function QrForm({ info }) {
-    console.log('render-qr')
     return ( 
         <div className={cx('qr_form')}>
             <div className={cx('body_qr')}>

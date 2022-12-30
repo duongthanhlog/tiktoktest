@@ -23,15 +23,101 @@
     --profile-layout-width : 100vw;
     --default-layout-horizontal-spacer : 24px ;
     --default-layout-header-height : 60px ;
-    --font-family : 'IBM Plex Sans';
-    --black:#000;
-    --text-color:#333;
     --primary: rgba(254, 44, 85, 1);
+    --font-family : 'IBM Plex Sans';
+    --text-color:#333;
     --white:#fff;
     --border-sperate-color: #f0f0f1;
     --sidebar-width : 340px;
+    --background-theme: white;
+    --search-background:#f1f1f2;
+    --color-search-icon: #767676;
+    --sperate-search-color: #d9d9d9;
+    --focus-search-border-color:#c5c6c9;
+    --search-icon-color:rgba(22, 24, 35, 0.34);
+    --search-btn-background-hover:rgb(235, 235, 235);
+    --clear-search-color:rgba(22, 24, 35, 0.34);
+    --upload-btn-background: white;
+    --upload-btn-hover:#f8f8f8;
+    --upload-btn-hover-border: rgba(22, 24, 35, 0.12);
+    --color-submenu-header:rgb(94, 94, 94);
+    --background-search-result: white ;
+    --heading-search-result-color : rgba(22, 24, 35, 0.5);
+    --background-account-hover : #f5f5f5;
+    --color-hover-nav-sidebar: #f8f8f8;
+    --background-rounded-btn: white;
+    --btn-outline-hover-background: #fff3f5;
+    --btn-outline-background: white;
+    --menu-sidebar-hover-background : rgba(22, 24, 35, 0.03);
+    --login-box-sidebar-color: rgba(22, 24, 35, 0.5);
+    --heading-title-sidebar-color:rgba(22, 24, 35, 0.75);
+    --sub-text-color:rgba(59, 61, 73, 0.75);
+    --background-tag-sidebar : rgba(255, 255, 255);
+    --background-color-tag-hover:#f8f8f8;
+    --footer-sidebar-text-color: rgba(22, 24, 35, 0.5);
+    --scroll-thumb-background: rgba(207, 207, 207, 0.219);
+    --action-color: #333;
+    --action-background-color: #f1f1f2;
+    --box-shadow-header: 0px 1px 1px rgb(0 0 0 / 12%);
+    --action-share-background: white;
+    --hover-share-option-background: rgba(22, 24, 35, 0.03);
+    --more-shareBtn-background-hover: rgb(247, 247, 247); 
+    --account-preview-background:white ;
+    --line-profile-wrap: rgba(0, 0, 0, 0.12);
+    --line-profile-background: black;
+    --closeBtn-modal-background: rgba(22, 24, 35, 0.03);
+    --send-btn-form: rgba(22, 24, 35, 0.06);
+    --form-background: white;
 }
 
+
+
+[data-theme='dark'] {
+    --border-sperate-color:rgba(109, 109, 109, 0.212);;
+    --color-submenu-header:#e8e8e8;
+    --upload-btn-background: #252525;
+    --upload-btn-hover:rgba(255, 255, 255, .04);
+    --upload-btn-hover-border:#252525;
+    --text-color:rgba(255, 255, 255, .9);
+    --background-theme : #121212;
+    --search-background:#2f2f2f;
+    --color-search : #a5a5a5;
+    --color-search-icon: rgba(255, 255, 255, 0.34);
+    --sperate-search-color:rgba(255, 255, 255, .12);
+    --focus-search-border-color: transparent;
+    --search-icon-color:rgba(255, 255, 255, 0.34);
+    --search-btn-background-hover:rgba(255, 255, 255, .04);
+    --clear-search-color:rgba(255, 255, 255, 0.34);
+    --background-hover-upload-btn:rgba(255, 255, 255, .04);
+    --background-search-result: rgb(37, 37, 37); 
+    --heading-search-result-color : rgba(255, 255, 255, 0.5);
+    --background-account-hover: rgba(255, 255, 255, 0.04);
+    --color-hover-nav-sidebar: rgba(255, 255, 255, .04);
+    --background-rounded-btn: rgba(255, 255, 255, .08);
+    --btn-outline-hover-background: rgba(254, 44, 85, 0.06);
+    --btn-outline-background: rgba(255, 255, 255, .08);
+    --menu-sidebar-hover-background: rgba(255, 255, 255, .04);
+    --login-box-sidebar-color:rgba(255, 255, 255, .5);
+    --heading-title-sidebar-color:rgba(255, 255, 255, .75);
+    --sub-text-color:rgba(255, 255, 255, 0.644);
+    --background-tag-sidebar : #252525;
+    --background-color-tag-hover:rgba(255, 255, 255, 0.04);
+    --footer-sidebar-text-color: rgba(255, 255, 255, .5);
+    --scroll-thumb-background: rgba(207, 207, 207, 0.062);
+    --action-color:rgba(255, 255, 255, 0.9);
+    --action-background-color: #2f2f2f;
+    --box-shadow-header: 0px 1px 1px rgb(255 255 255 / 12%);
+    --hover-option-header: rgba(255, 255, 255, 0.04);
+    --action-share-background: #1a1a1a;
+    --hover-share-option-background: rgba(255, 255, 255, 0.04);
+    --more-shareBtn-background-hover: rgb(37, 37, 37); 
+    --account-preview-background : rgb(37, 37, 37);
+    --line-profile-wrap: #212121;
+    --line-profile-background: white;
+    --closeBtn-modal-background: rgba(255, 255, 255, 0.04);
+    --send-btn-form: rgba(255, 255, 255, 0.08);
+    --form-background: rgb(37, 37, 37);
+}
 
 
 * {
@@ -52,10 +138,8 @@ body {
     text-rendering: optimizeSpeed;
     color: var(--text-color);
     overflow-y: overlay;
+    background-color: var(--background-theme);  
 }
-
-
-
 
 
 
@@ -66,9 +150,10 @@ html *::-webkit-scrollbar {
     border-radius: 0;
     width: 8px;
 }
+
 html *::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: rgba(22, 24, 35, .06);
+    background-color: rgba(148, 148, 148, 0.336);
 }
 html *::-webkit-scrollbar-track {
     border-radius: 0;

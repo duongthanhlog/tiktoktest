@@ -8,6 +8,7 @@ import styles from './SuggestedAccounts.module.scss';
 import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
 
+
 const cx = classNames.bind(styles);
 
 function AccountItem({data, showPreview}) {
@@ -19,7 +20,7 @@ function AccountItem({data, showPreview}) {
             delay={[800, 80]}
             render={() => {
                 return (
-                    <Popper>
+                    <Popper className={cx('popper')}>
                         {showPreview && <AccountPreview 
                             data={data}
                             showPreview

@@ -50,12 +50,12 @@
 }
 
 .outline {
-    background-color: var(--white);
+    background-color: var(--btn-outline-background);
     border-color: var(--primary);
     color: var(--primary);
 
     &:hover {
-        background-color:#fff3f5;
+        background-color: var(--btn-outline-hover-background);
         border-color: var(--primary);
     }
 }
@@ -63,9 +63,13 @@
 .text {
     min-width: 110px;
     border-color: rgba(22, 24, 35, 0.12);
+    background-color: var(--upload-btn-background);
+    color: var(--text-color);
+
     &:hover {
-        background-color: #f8f8f8;
-        border-color: transparent;
+        // background-color: #f8f8f8;
+        background-color:var( --upload-btn-hover);
+        border-color: var( --upload-btn-hover-border);
     }
 }
 

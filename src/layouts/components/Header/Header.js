@@ -28,6 +28,7 @@ import Image from '~/components/Image/Image';
 import Search from '../Search/Search';
 import { useContext } from 'react';
 import { UserCurrentContext } from '~/Provider';
+import { ThemeContext } from '~/Provider/ThemeProvider';
 
 
 const cx = classNames.bind(styles);
@@ -58,10 +59,12 @@ const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faMoon} />,
         title: 'Chế độ tối',
+        theme : 'theme'
     },
 ];
 
 function Header({className}) {
+    const darkTheme = JSON.parse(localStorage.getItem('darkMode'))
     const { currentUser } = useContext(UserCurrentContext)
 
     const userMenu = [
@@ -101,14 +104,14 @@ function Header({className}) {
             <div className={classes}>
                 <div className={cx('logo')}>
                     <Link to={config.routes.home} className={cx('logo_link')}>
-                        <img src={images.logo} alt="Tiktok"/>
+                        <Image src={darkTheme ? images.darkModeLogo : images.logo}/> 
                     </Link>
                 </div>
 
                 <Search /> 
 
                 <div className={cx('actions')}>
-                    <Button text leftIcon={<FontAwesomeIcon className="left-icon" icon={faPlus} />}>
+                    <Button className={cx('upload_btn')} text leftIcon={<FontAwesomeIcon className="left-icon" icon={faPlus} />}>
                         Tải lên
                     </Button>
                     {currentUser ? (
@@ -131,15 +134,17 @@ function Header({className}) {
                         </>
                     )}
 
-                    <Menu currentUser={currentUser} items={currentUser ? userMenu : MENU_ITEM} >
+                    <Menu currentUser={currentUser} items={currentUser ? userMenu : MENU_ITEM}>
                         {currentUser ? (
-                            <Image
-                                className={cx('user_ava')}
-                                src="https://icdn.dantri.com.vn/thumb_w/640/2020/12/16/ngam-dan-hot-girl-xinh-dep-noi-bat-nhat-nam-2020-docx-1608126694049.jpeg"
-                            />
+                            <div className={cx('menu_sub')}>
+                                <Image
+                                    className={cx('user_ava')}
+                                    src="https://icdn.dantri.com.vn/thumb_w/640/2020/12/16/ngam-dan-hot-girl-xinh-dep-noi-bat-nhat-nam-2020-docx-1608126694049.jpeg"
+                                />
+                            </div>
                         ) : (
                             <div className={cx('menu_sub')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                                <FontAwesomeIcon className={cx('menu_sub-icon')} icon={faEllipsisVertical} />
                             </div>
                         )}
                     </Menu>
