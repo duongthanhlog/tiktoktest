@@ -44,11 +44,23 @@
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
+
+    &.live {
+        padding: 2px;
+        border: 1px solid var(--primary);
+        background-clip: content-box;
+    }
 }
 
-.item_info {
+.account_info {
+    display: flex;
+    justify-content: space-between;
     margin-left: 8px;
     flex: 1;
+
+    .view {
+        display: block;
+    }
 }
 
 .nick_name {

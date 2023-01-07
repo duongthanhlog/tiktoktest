@@ -145,6 +145,7 @@ function Profile() {
                         </span>
                     </ShareAction>
                     <HeadlessTippy 
+                        appendTo={document.body}
                         hideOnClick={false}
                         delay={[0, 200]}
                         interactive
@@ -170,7 +171,7 @@ function Profile() {
                         <div ref={lineRef} className={cx('line')}></div>
                     </div>
                 </div>
-                {activeTabs.videoTab ?<div className={cx('videos_container')}>
+                {activeTabs.videoTab ? <div className={cx('videos_container')}>
                     <div className={cx('video_wrap')}>
                                 <HoverVideoPlayer
                                     videoClassName={cx('video')}
@@ -192,7 +193,7 @@ function Profile() {
                 <div className={cx('liked_container')}>
                     <div><LockIcon width='9rem' height='9rem' className={cx('lock_icon')}/></div>
                     <div className={cx('title')}>Video đã thích của người dùng này ở trạng thái riêng tư</div>
-                    <div className={cx('description')}>Các video được thích bởi theanh28entertainment hiện đang ẩn</div>
+                    <div className={cx('description')}>Các video được thích bởi {info.nickname} hiện đang ẩn</div>
                 </div>}
             </div>
         </div>

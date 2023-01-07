@@ -10,18 +10,24 @@ import {
 } from '~/components/Icons';
 import SuggestAccount from '../SuggestedAccounts/SuggestedAccounts';
 import LoginBox from '../LoginBox';
-import Seperate from '~/components/Seperate';
-import { memo, useContext } from 'react';
+import { Fragment, memo, useContext } from 'react';
 import { UserCurrentContext } from '~/Provider';
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import DiscoverTag from '../DiscoverTags';
-import SidebarFooter from '../SidebarFooter';
+import SidebarFooter from './Footer';
+import { useLocation } from 'react-router-dom';
+import SuggestFollowed from '../SuggestFollowed';
 
 const cx = classNames.bind(styles);
 
 function SideBar({ className }) {
+    const location = useLocation();
     const { currentUser } = useContext(UserCurrentContext);
+
+    const isHomePage = location.pathname === config.routes.home;
+    const isLivePage = location.pathname === config.routes.live;
+    const isProfilePage = location.pathname === config.routes.profile;
 
     const classes = cx('wrapper', className);
 
@@ -45,10 +51,45 @@ function SideBar({ className }) {
 
             {!currentUser && <LoginBox />}
 
-            <SuggestAccount label="Tài khoản được đề xuất" moreButton="Xem Tất cả" showPreview /> 
-            {currentUser && <SuggestAccount label="Các tài khoản đang follow" moreButton="Xem thêm"/>}
-            
-            <DiscoverTag label="Khám phá" />
+            {!currentUser && isHomePage && (
+                <SuggestAccount
+                    label="Tài khoản được đề xuất"
+                    moreButton="Xem Tất cả"
+                    hideButton="Ẩn bớt"
+                    accountsNumber={5}
+                    showPreview
+                />
+            )}
+            {!currentUser && isProfilePage && (
+                <SuggestAccount
+                    label="Tài khoản được đề xuất"
+                    moreButton="Xem Tất cả"
+                    hideButton="Ẩn bớt"
+                    accountsNumber={5}
+                    showPreview
+                />
+            )}
+           
+
+            {currentUser && !isLivePage && (
+                <>
+                    <SuggestAccount
+                        label="Tài khoản được đề xuất"
+                        moreButton="Xem Tất cả"
+                        hideButton="Ẩn bớt"
+                        accountsNumber={5}
+                        showPreview
+                    />
+                    <SuggestFollowed
+                        label="Các tài khoản đang follow"
+                        moreButton="Xem thêm"
+                        hideButton="Ẩn tất cả"
+                        accountsNumber={10}
+                    />
+                </>
+            )}
+
+            {!isLivePage && <DiscoverTag label="Khám phá" />}
             <SidebarFooter />
         </div>
     );

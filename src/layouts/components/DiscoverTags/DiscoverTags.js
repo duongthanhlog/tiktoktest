@@ -1,42 +1,38 @@
+import { MusicIcon, TagIcon } from '~/components/Icons';
 import classNames from 'classnames/bind';
 import styles from './DiscoverTags.module.scss';
-import DiscoverItem from '~/layouts/components/DiscoverTags/DiscoverItem';
-import { MusicIcon, TagIcon } from '~/components/Icons';
-import Seperate from '../../../components/Seperate/Seperate';
 
 const cx = classNames.bind(styles);
 
-function DiscoverTags({ label }) {
+const disoveries = [
+    { icon: TagIcon, title: 'suthatla' },
+    { icon: TagIcon, title: 'mackedoi' },
+    { icon: TagIcon, title: 'sangsangthaydoi'},
+    { icon: MusicIcon, title: 'Yêu Đơn Phương Là Gì (MEE Remix) - Mee Media & h0n & BHMedia' },
+    { icon: MusicIcon, title: 'Về Nghe Mẹ Ru - NSND Bach Tuyet & Hứa Kim Tuyền & 14 Casper & Hoàng Dũng' },
+    { icon: MusicIcon, title: 'Thiên Thần Tình Yêu - RICKY STAR' },
+    { icon: TagIcon, title: '7749hieuung' },
+    { icon: TagIcon, title: 'genzlife' },
+    { icon: MusicIcon, title: 'Tình Đã Đầy Một Tim - Huyền Tâm Môn' },
+    { icon: MusicIcon, title: 'Thằng Hầu (Thái Hoàng Remix) [Short Version] - Dunghoangpham' },
+];
+
+function DiscoverTags({ label }) {  
     return (
-            <div className={cx('wrapper')}>
-                <p className={cx('label')}>{label}</p>
-                <div className={cx('tags')}>
-                    <DiscoverItem
-                        icon={<MusicIcon width="1.6rem" height="1.6rem" className={cx('icon')} />}
-                        title="mackedoi"
-                    />
-                    <DiscoverItem
-                        icon={<MusicIcon width="1.6rem" height="1.6rem" className={cx('icon')} />}
-                        title="mackedoi"
-                    />
-                    <DiscoverItem
-                        icon={<MusicIcon width="1.6rem" height="1.6rem" className={cx('icon')} />}
-                        title="mackedoi"
-                    />
-                    <DiscoverItem
-                        icon={<TagIcon width="1.6rem" height="1.6rem" className={cx('icon')} />}
-                        title="mackedoiád"
-                    />
-                    <DiscoverItem
-                        icon={<TagIcon width="1.6rem" height="1.6rem" className={cx('icon')} />}
-                        title="mackádaedoi"
-                    />
-                    <DiscoverItem
-                        icon={<TagIcon width="1.6rem" height="1.6rem" className={cx('icon')} />}
-                        title="mackedoi"
-                    />
-                </div>
+        <div className={cx('wrapper')}>
+            <p className={cx('label')}>{label}</p>
+            <div className={cx('tags')}>
+                {disoveries.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                        <div key={Math.random() * 1000}>
+                            <Icon width="1.6rem" height="1.6rem" className={cx('icon')} />
+                            <span className={cx('title')}>{item.title}</span>
+                        </div>
+                    );
+                })}
             </div>
+        </div>
     );
 }
 

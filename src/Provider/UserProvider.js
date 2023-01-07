@@ -3,7 +3,7 @@ import {useState, createContext} from 'react'
 export const UserCurrentContext = createContext()
 
 function UserProvider( {children} ) {
-    const [currentUser, setCurrentUser] = useState(false)
+    const [currentUser, setCurrentUser] = useState(true)
 
     
     const handleLogin = () => {

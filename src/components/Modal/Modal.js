@@ -26,7 +26,6 @@ const cx = classNames.bind(styles);
 
 function Modal() {
     const {darkTheme} = useContext(ThemeContext)
-    console.log(darkTheme)
     const modalTypes = {
         login: {
             heading: 'Đăng nhập Tiktok',

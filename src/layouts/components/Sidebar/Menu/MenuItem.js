@@ -2,21 +2,14 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserCurrentContext } from '~/Provider';
 
 
 const cx = classNames.bind(styles);
 
 function MenuItem({ title, to, icon, activeIcon }) {
-    const { currentUser } = useContext(UserCurrentContext)
-    const handleClick = () => {
-        console.log(to)
-    }
     return (
         <NavLink
             to={to}
-            onClick={handleClick}
             className={(nav) => cx('menu_item', { active: nav.isActive })}
             children={(nav) => {
                 const isActive = nav.isActive;

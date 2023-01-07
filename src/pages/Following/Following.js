@@ -1,6 +1,5 @@
-import axios from 'axios';
 import classNames from 'classnames/bind';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '~/components/Button';
 import Image from '~/components/Image';
@@ -11,6 +10,8 @@ import SkeletonFollowing from '~/layouts/components/SkeletonFollowing';
 import HoverVideoPlayer from 'react-hover-video-player';
 import { UserCurrentContext } from '~/Provider';
 import config from '~/config';
+import UserPost from '~/components/UserPost';
+import SkeletonPost from '~/layouts/components/SkeletonPost';
 
 const cx = classNames.bind(styles);
 
@@ -28,6 +29,7 @@ function Following() {
             } else {
                 const result = await FollowingService.post('for-you', page);
                 setVideos((prev) => [...prev, result]);
+                setVideos(result)
             }
             setIsLoading(false);
         };
@@ -51,57 +53,62 @@ function Following() {
             e.preventDefault();
         }
     };
-
-    return (
-        <div className={cx('wrapper')}>
-            {!currentUser &&
-                videos.map((items) => {
-                    return items.map((video) => {
-                        return (
-                            <div key={video.uuid} className={cx('user_wrap')}>
-                                <Link
-                                    onClick={handlePreventClickTheLink}
-                                    className={cx('link')}
-                                    to={config.routes.profile}
-                                    state={video.user}
-                                >
-                                    <HoverVideoPlayer
-                                        key={video.uuid}
-                                        videoSrc={video.file_url}
-                                        videoStyle={{
-                                            height: '100%',
-                                            borderRadius: 10,
-                                        }}
-                                        hoverOverlay={
-                                            <div className={cx('button_wrap')}>
-                                                <Button primary className={cx('button')}>
-                                                    <span>Follow</span>
-                                                </Button>
-                                            </div>
-                                        }
-                                        pausedOverlay={<Image className={cx('img_preview')} src={video.thumb_url} />}
-                                        className={cx('video_wrap')}
-                                        restartOnPaused
-                                        disablePictureInPicture
-                                    />
-                                </Link>
-                                <div className={cx('body')}>
-                                    <div className={cx('info')}>
-                                        <Image src={video.user.avatar} className={cx('avatar')} />
-                                        <p className={cx('nick_name')}>{video.user.nickname}</p>
-                                        <p className={cx('full_name')}>
-                                            {video.user.first_name + ' ' + video.user.last_name}
-                                        </p>
-                                    </div>
-                                    <Button primary className={cx('button_pointer-none')}>
+    
+    const renderUserVideoCards = () => {
+        return videos.map((video) => {
+            return (
+                <div key={video.uuid} className={cx('user_wrap')}>
+                    <Link
+                        onClick={handlePreventClickTheLink}
+                        className={cx('link')}
+                        to={config.routes.profile}
+                        state={video.user}
+                    >
+                        <HoverVideoPlayer
+                            key={video.uuid}
+                            videoSrc={video.file_url}
+                            videoStyle={{
+                                height: '100%',
+                                borderRadius: 10,
+                            }}
+                            hoverOverlay={
+                                <div className={cx('button_wrap')}>
+                                    <Button primary className={cx('button')}>
                                         <span>Follow</span>
                                     </Button>
                                 </div>
-                            </div>
-                        );
-                    });
-            })}
-            {isLoading && <SkeletonFollowing quanlity={15} />}
+                            }
+                            pausedOverlay={<Image className={cx('img_preview')} src={video.thumb_url} />}
+                            className={cx('video_wrap')}
+                            restartOnPaused
+                            disablePictureInPicture
+                        />
+                    </Link>
+                    <div className={cx('body')}>
+                        <div className={cx('info')}>
+                            <Image src={video.user.avatar} className={cx('avatar')} />
+                            <p className={cx('nick_name')}>{video.user.nickname}</p>
+                            <p className={cx('full_name')}>
+                                {video.user.first_name + ' ' + video.user.last_name}
+                            </p>
+                        </div>
+                        <Button primary className={cx('button_pointer-none')}>
+                            <span>Follow</span>
+                        </Button>
+                    </div>
+                </div>
+            );
+        })
+    }
+
+    const renderFollowedPost = () => {
+        return videos.map(video => <UserPost key={video.id} data={video} />)
+    }
+
+    return (
+        <div data-user={currentUser ? 'have-user' : 'no-user'} className={cx('wrapper')}>
+            {currentUser ? renderFollowedPost() : renderUserVideoCards()}
+            {currentUser && isLoading ? <SkeletonPost quanlity={1}/> : <SkeletonFollowing quanlity={15} />}
         </div>
     );
 }

@@ -1,4 +1,4 @@
-.wrapper {
+[data-user='no-user'] {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -6,6 +6,9 @@
     margin-top: 8px;
 }
 
+[data-user='have-user'] {
+    padding: 24px 0;
+}
 
 .user_wrap {
     position: relative;

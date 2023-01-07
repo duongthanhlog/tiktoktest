@@ -9,12 +9,11 @@ import SkeletonAccount from '../SkeletonAccount';
 
 const cx = classNames.bind(styles);
 
-function SuggestAccount({ label, currentUser }) {
+function SuggestAccount({ label, currentUser, moreButton, hideButton, showPreview, liveView }) {
     const [suggest, setSuggest] = useState([]);
     const [seeAll, setSeeAll] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [moreUser, setMoreUser] = useState(5);
-
+    const [isLoading, setIsLoading] = useState(true);
+    
     useEffect(() => {
         const fetch = async () => {
             if (seeAll) {
@@ -31,33 +30,19 @@ function SuggestAccount({ label, currentUser }) {
         fetch();
     }, [seeAll]);
 
-    useEffect(() => {
-        const fetch = async () => {
-            setIsLoading(true);
-            const result = await SuggestAccountService.suggest(0, moreUser);
-            setSuggest(result);
-            setIsLoading(false);
-        };
-        fetch();
-    }, [moreUser]);
-
-    const handleSeeMore = () => {
-        setMoreUser(prev => prev + 5);
-        console.log(moreUser)
-    };
 
     const handleHideAll = () => {
         setSeeAll(false);
-        setMoreUser(5);
     };
-
 
     const handleSeeAll = () => {
         setSeeAll(true);
     };
 
     const renderAccount = () => {
-        return suggest.map((user) => <AccountItem key={user.id} data={user} showPreview />);
+        return suggest.map((user) => (
+            <AccountItem key={user.id} data={user} showPreview={showPreview} liveView={liveView} />
+        ));
     };
 
     return (
@@ -69,23 +54,12 @@ function SuggestAccount({ label, currentUser }) {
 
             {!seeAll ? (
                 <p onClick={handleSeeAll} className={cx('more_btn')}>
-                    {!currentUser && !isLoading && 'Xem tất cả'}
+                    {!currentUser && !isLoading && moreButton}
                 </p>
             ) : (
                 <p onClick={handleHideAll} className={cx('more_btn')}>
-                    Ẩn bớt
+                    {hideButton}
                 </p>
-            )}
-
-            {currentUser && (
-                <div>
-                    <p onClick={handleSeeMore} className={cx('more_btn')}>
-                        {moreUser >= 5 && moreUser < 20 && 'Xem thêm'}
-                    </p>
-                    <p onClick={handleHideAll} className={cx('more_btn')}>
-                        {moreUser === 20 && 'Ẩn tất cả'}
-                    </p>
-                </div>
             )}
         </div>
     );

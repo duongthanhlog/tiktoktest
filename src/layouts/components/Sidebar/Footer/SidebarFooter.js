@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import Seperate from '../../../components/Seperate/Seperate';
+import Seperate from '../../../../components/Seperate/Seperate';
 import styles from './SidebarFooter.module.scss';
 
 const cx = classNames.bind(styles);

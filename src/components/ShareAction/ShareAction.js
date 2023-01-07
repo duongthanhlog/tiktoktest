@@ -113,6 +113,7 @@ function ShareAction({ children, className, ...props }) {
 
     return (
         <HeadlessTippy
+            appendTo={document.body}
             delay={[0, 500]}
             interactive
             hideOnClick={false}
