@@ -1,0 +1,16 @@
+.header {
+    width: 100%;
+    padding:0 12px;
+}
+
+.container {
+    display: flex;
+    margin-top: var(--default-layout-header-height);
+    background-color: var(--search-background);
+}
+
+.content {
+    margin: 0 auto;
+    width: var(--default-layout-width);
+    padding: 16px 0;
+}

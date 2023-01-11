@@ -1,0 +1,377 @@
+$backgroundColorButton : rgba(84, 84, 84, 0.5);
+$brightness : brightness(50%);
+
+.wrapper {
+    display: flex;
+}
+
+
+.video_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 822px;
+    max-height: 100vh;
+    flex: 1.5;
+    cursor: pointer;
+    
+    .blur_image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .blur_background {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        backdrop-filter: blur(32px);
+
+        .logo_circle {
+            position: absolute;
+            top: 20px;
+            margin-left: 4px;
+            border-radius: 50%;
+        }
+
+        .close_btn {
+            margin: 20px;
+            background-color: $backgroundColorButton;
+            color: white;
+            font-size: 2.8rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: 0.2s ease-in;
+    
+            &:hover {
+                filter: $brightness;
+            }
+        }
+
+        .report_btn {
+            position: absolute;
+            color: rgb(255, 255, 255);
+            font-size: 1.4rem;
+            line-height: 2rem;
+            border-radius: 100px;
+            padding: 10px 16px;
+            background-color: $backgroundColorButton;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            transition: 0.1s ease;
+    
+            &:hover {
+                filter: $brightness;
+            }
+        }
+
+        .up-down_wrap {
+            color: white;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100px;
+        }
+
+        .up_btn, .down_btn {
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            padding: 1px 6px;
+            background-color: $backgroundColorButton;
+            font-size: 2.2rem;
+            transition: 0.1s ease;
+    
+            &:hover {
+                filter: $brightness;
+            }
+        }
+
+        .play_icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            color: white;
+            transform: translate(-50%, -50%) scale(4);
+            z-index: 1;
+        }
+
+        .volume_btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            background-color: $backgroundColorButton;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.16s ease;
+
+            &:hover {
+                filter: $brightness;
+            }
+        }
+        
+    }
+}
+
+
+
+.video {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+.content_container {
+    flex: 1;
+    background-color: var(--background-theme);
+    height: 100vh;
+    padding: 32px 0;
+    position: fixed;
+    right: 0;
+    left: 822px;
+    bottom: 0;
+
+
+    .info_wrap {
+        padding: 28px 32px 0;
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .nickname {
+        color: var(--text-color);
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+
+        .tick_icon {
+            position: relative;
+            margin-left: 4px;
+            top: 2px;
+            color: var(--tick-icon-color);
+        }
+    }
+
+    .name {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        display: flex;
+        color: var(--sub-text-color);
+    }
+
+    .follow_btn {
+        width: 107px;
+        margin-left: auto;
+    }
+
+    .user_desc {
+        padding: 0 32px;
+        .hashtag {
+            margin-left: 4px;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .music_box {
+        margin-top: 10px;
+        margin-bottom: 16px;
+        font-weight: 700;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        padding: 0 32px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        .music_icon {
+            position: relative;
+            top: 3px;
+            margin-right: 8px;
+        }
+    }
+
+    .user_actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 32px 2px;
+    }
+
+    .user_action-share {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+
+        .share_btn {
+            position: relative;
+            background-color: transparent;
+            top: 4px;
+            width: 32px;
+            height: 32px;
+            transform: scale(0.8);
+            margin-left: 8px;
+
+            &:hover {
+                background-color: var(--action-background-color)
+            }
+        }
+
+        .share_icon {
+            margin-left: 8px;
+        }
+    }
+
+    .user_action-button {
+        display: flex;
+        align-items: center;
+
+        span {
+            position: relative;
+            top: -2px;
+            margin-left: 4px;
+            font-size: 1.2rem;
+            line-height: 1.7rem;
+            margin-right: 20px;
+        }
+
+        .liked_icon, .comment_icon {
+            width: 34px;
+            height: 34px;
+            transform: scale(0.9);
+        }
+
+        .liked_icon:hover {
+            filter: brightness(90%);
+        }
+    }
+
+    .link_coppy {
+        display: flex;
+        background-color: var(--action-background-color);
+        border-radius: 8px;
+        border: 1px solid rgba(22, 24, 35, 0.12);
+        overflow: hidden;
+        margin: 0 32px;
+
+        span {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            flex: 2.9;
+            padding: 7px 0 5px 12px;
+        }
+
+        .coppy_btn {
+            background-color: transparent;
+            color: var(--text-color);
+            font-weight: 700;
+            padding: 7px 18px;
+
+            &:hover {
+                background-color:var(--hover-link-coppybox-background)
+            }
+        }
+    }
+}
+
+
+.comment_box {
+    height: 220px;
+    margin-top: 16px;
+    width: 100%;
+    background-color: var(--background-comment-box);
+    border-top: 1px solid var(--border-color-commentbox);
+    border-bottom: 1px solid var(--border-color-commentbox);
+}
+
+
+.comment_input {
+    display: flex;
+    align-items: center;
+    color: var(--sub-text-color);
+    width: 100%;
+    padding: 20px 32px;
+    background-color: var(--background-theme);
+
+    .post {
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .post.active {
+        color: var(--primary);
+    }
+
+}
+
+.input_wrap {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    height: 40px;
+    flex: 1;
+    margin-right: 10px;
+    padding-right: 10px;
+
+    input {
+        background-color: rgba(22, 24, 35, 0.06);
+        color: var(--text-color);
+        padding: 9px;
+        width: 100%;
+        caret-color: var(--primary);
+
+        &::placeholder {
+            font-size: 1.4rem;
+            color: var(--text-color);
+        }
+
+    }
+}
+
+
+.comment_options {
+    display: flex;
+    align-items: center;
+
+    .icon {
+        margin-left: 8px;
+        margin-right: 10px;
+    }
+}
+
+
+

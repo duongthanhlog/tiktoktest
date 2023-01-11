@@ -18,6 +18,7 @@ import DiscoverTag from '../DiscoverTags';
 import SidebarFooter from './Footer';
 import { useLocation } from 'react-router-dom';
 import SuggestFollowed from '../SuggestFollowed';
+import LiveAccount from '../LiveAccount';
 
 const cx = classNames.bind(styles);
 
@@ -88,6 +89,8 @@ function SideBar({ className }) {
                     />
                 </>
             )}
+
+            {isLivePage && <LiveAccount label='Các chủ phòng được đề xuất'/>}
 
             {!isLivePage && <DiscoverTag label="Khám phá" />}
             <SidebarFooter />

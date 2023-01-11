@@ -1,7 +1,7 @@
 .action {
     cursor: pointer;
 
-    button {
+    .action_btn {
         color:var(--action-color);
         display: flex;
         align-items: center;
@@ -26,6 +26,3 @@
     }
 }
 
-.action_btn {
-    cursor: pointer;
-}

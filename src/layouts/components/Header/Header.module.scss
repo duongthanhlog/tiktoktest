@@ -49,13 +49,15 @@
     align-items: center;
 }
 
-
+.upload_btn {
+    margin-right: 8px;
+}
 
 .action_btn {
     position: relative;
     background-color: transparent;
     color: var(--text-color);
-    padding: 4px 12px;
+    padding: 0 8px;
     cursor: pointer;
 }
 
@@ -78,6 +80,3 @@
     cursor: pointer;
 }
 
-.message_icon {
-    margin-left: 10px;
-}

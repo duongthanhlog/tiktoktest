@@ -1,0 +1,46 @@
+.wrapper {
+    position: relative;
+    background-color: black;
+    padding-bottom: 24px;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 52px 0 110px;
+    margin-bottom: 70px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    
+    h4 {
+        color: white;
+    }
+    a {
+        color: #ccc;
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.logo_name {
+    margin-left: 8px;
+}
+
+    
+.coppy_right {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    color: #8a8b91;
+    margin-right: 120px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

@@ -6,7 +6,7 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { Popper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
+import AccountSearch from '~/components/AccountSearch';
 import { SearchIcon } from '~/components/Icons/Icon';
 import { useDebounce } from '../Hooks';
 import * as searchServices from '~/services/searchService';
@@ -75,7 +75,7 @@ function Search() {
                 <Popper className={cx('popper')}>
                     <h4 className={cx('search_title')}>Accounts</h4>
                     {searchResult.map((data) => {
-                        return <AccountItem key={data.id} data={data} />;
+                        return <AccountSearch key={data.id} data={data} onClick={handleHideResult}/>;
                     })}
                 </Popper>
             </div>

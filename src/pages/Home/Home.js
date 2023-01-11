@@ -1,18 +1,16 @@
 
 
 import UserPost from '~/components/UserPost';
-import Seperate from '~/components/Seperate';
-import { Fragment, useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import Skeleton from 'react-loading-skeleton'
+import {useEffect, useState } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import * as postService from '~/services/postService';
-import SkeletonPost from '~/layouts/components/SkeletonPost';
+// import SkeletonPost from '~/layouts/components/SkeletonPost';
 
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss'; 
+import SkeletonPost from '~/components/Skeleton/SkeletonPost';
+
 const cx = classNames.bind(styles);
 
 function Home() {
@@ -23,8 +21,10 @@ function Home() {
     useEffect(() => {
         const fetchApi = async () => {
             setIsLoading(true)
-            const result = await postService.post('for-you', page);
-            setPosts((prev) => [...prev, result]);
+            const data = await postService.post('for-you', page);
+            data.map(user => {
+                setPosts(prev => [...prev, user])
+            })
             setIsLoading(false)
         };
         fetchApi();
@@ -49,13 +49,7 @@ function Home() {
 
     return (
         <div className={cx('wrapper')}>
-            {posts.map((datas) => {
-              return datas.map(item => {
-                    return (
-                        <UserPost key={item.id} data={item} />
-                    );
-                });
-            })}
+            {posts.map(user => <UserPost key={user.id} data={user} />)}
             {isLoading && <SkeletonPost quanlity={1}/>}
         </div>
     );

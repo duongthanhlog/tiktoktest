@@ -13,7 +13,7 @@ function AccountPreview({data, haveFooter}) {
     return (
          <div className={cx('wrapper')}>
          <div className={cx('header')}>
-             <Link className={cx('avatar_link')} to={`@${data.nickname}`} state={data}>
+             <Link className={cx('avatar_link')} to={config.routes.profileLink(data.nickname)} state={data}>
                  <Image className={cx('avatar')} src={data.avatar} alt="" />
              </Link>
              <Button className={cx('follow_btn')} primary>
@@ -22,11 +22,11 @@ function AccountPreview({data, haveFooter}) {
          </div>
          <div className={cx('body')}>
              <div className={cx('item_info')}>
-                 <Link to={`@${data.nickname}`} className={cx('nick_name')} state={data}>
+                 <Link to={config.routes.profileLink(data.nickname)} className={cx('nick_name')} state={data}>
                      <strong>{data.nickname}</strong>
                      {data.tick && <FontAwesomeIcon className={cx('tick_icon')} icon={faCheckCircle} />}
                  </Link>
-                 <Link to={config.routes.profile} className={cx('user_name')} state={data}>{`${data.first_name} ${data.last_name}`}</Link>
+                 <Link to={config.routes.profileLink(data.nickname)} className={cx('user_name')} state={data}>{(data.first_name + ' ' + data.last_name).trim() || data.nickname}</Link>
                  <div className={cx('analytics')}>
                      <strong className={cx('value')}>{data.followers_count}</strong>
                      <span className={cx('label')}>Followers</span>

@@ -179,14 +179,22 @@ $transitionControls:0.3s ease;
 
 .user_text {
     color: var(--sub-text-color);
+
     .hashtag {
         margin-left: 4px;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
 .music_info {
     display: block;
     margin: 4px 0 12px;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .user_img {

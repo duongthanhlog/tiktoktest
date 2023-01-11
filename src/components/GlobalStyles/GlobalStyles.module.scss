@@ -68,6 +68,10 @@
     --closeBtn-modal-background: rgba(22, 24, 35, 0.03);
     --send-btn-form: rgba(22, 24, 35, 0.06);
     --form-background: white;
+    --hover-link-coppybox-background : #f8f8f8;
+    --background-comment-box:rgb(248, 248, 248);
+    --tick-icon-color:rgb(32, 213, 236);
+    --border-color-commentbox : rgba(22, 24, 35, 0.2);
 }
 
 
@@ -117,6 +121,9 @@
     --closeBtn-modal-background: rgba(255, 255, 255, 0.04);
     --send-btn-form: rgba(255, 255, 255, 0.08);
     --form-background: rgb(37, 37, 37);
+    --hover-link-coppybox-background : #1b1b1b;
+    --background-comment-box:rgb(18, 18, 18);
+    --border-color-commentbox : rgba(255, 255, 255, 0.2);
 }
 
 
@@ -168,7 +175,6 @@ button, input, [tabIndex] {
 a {
     color: var(--text-color);
     text-decoration: none;
-    display: block;
 }
 
 body {
@@ -203,4 +209,9 @@ li {
 
 .d-flex {
     display: flex;
+}
+
+.flex-d-col {
+    display: flex;
+    flex-direction: column;
 }

@@ -54,7 +54,7 @@ function Button({
   } else if (href) {
     props.href = href;
     Components = "a";
-  }
+  } 
 
   const classes = cx("wrapper", {
     [className] : className,

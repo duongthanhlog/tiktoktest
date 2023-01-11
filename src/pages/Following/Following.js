@@ -6,12 +6,10 @@ import Image from '~/components/Image';
 
 import styles from './Following.module.scss';
 import * as FollowingService from '~/services/postService';
-import SkeletonFollowing from '~/layouts/components/SkeletonFollowing';
 import HoverVideoPlayer from 'react-hover-video-player';
 import { UserCurrentContext } from '~/Provider';
 import config from '~/config';
-import UserPost from '~/components/UserPost';
-import SkeletonPost from '~/layouts/components/SkeletonPost';
+import SkeletonFollowing from '~/components/Skeleton/SkeletonFollowing';
 
 const cx = classNames.bind(styles);
 
@@ -27,9 +25,10 @@ function Following() {
             if (page >= 3) {
                 setIsLoading(false);
             } else {
-                const result = await FollowingService.post('for-you', page);
-                setVideos((prev) => [...prev, result]);
-                setVideos(result)
+               const data = await FollowingService.post('for-you', page);
+               data.map(user => {
+                    setVideos(prev => [...prev, user])
+                })
             }
             setIsLoading(false);
         };
@@ -61,7 +60,7 @@ function Following() {
                     <Link
                         onClick={handlePreventClickTheLink}
                         className={cx('link')}
-                        to={config.routes.profile}
+                        to={config.routes.profileLink(video.user.nickname)}
                         state={video.user}
                     >
                         <HoverVideoPlayer
@@ -102,13 +101,14 @@ function Following() {
     }
 
     const renderFollowedPost = () => {
-        return videos.map(video => <UserPost key={video.id} data={video} />)
+        // return videos.map(video => <UserPost key={video.id} data={video} />)
     }
 
     return (
         <div data-user={currentUser ? 'have-user' : 'no-user'} className={cx('wrapper')}>
             {currentUser ? renderFollowedPost() : renderUserVideoCards()}
-            {currentUser && isLoading ? <SkeletonPost quanlity={1}/> : <SkeletonFollowing quanlity={15} />}
+            {currentUser && isLoading && <SkeletonPost quanlity={1}/>}
+            {!currentUser && isLoading && <SkeletonFollowing quanlity={15}/>}
         </div>
     );
 }

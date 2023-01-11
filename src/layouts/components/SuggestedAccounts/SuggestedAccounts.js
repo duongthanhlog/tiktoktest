@@ -5,7 +5,7 @@ import AccountItem from './AccountItem';
 import { useEffect, useState } from 'react';
 import * as SuggestAccountService from '~/services/suggestService';
 
-import SkeletonAccount from '../SkeletonAccount';
+import SkeletonAccount from '../../../components/Skeleton/SkeletonAccount';
 
 const cx = classNames.bind(styles);
 

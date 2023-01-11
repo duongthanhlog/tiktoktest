@@ -1,9 +1,8 @@
 import styles from './SuggestFollowed.module.scss';
 import classNames from 'classnames/bind';
-import AccountItem from '../SuggestedAccounts/AccountItem';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as SuggestFollowingAccounts from '~/services/FollowingListService';
-import SkeletonAccount from '../SkeletonAccount';
+import SkeletonAccount from '../../../components/Skeleton/SkeletonAccount';
 
 const cx = classNames.bind(styles);
 
@@ -40,11 +39,11 @@ function SuggestFollowed({ label, moreButton, hideButton, accountsNumber }) {
             <p className={cx('label')}>{label}</p>
 
             {suggest.map((item) => {
-                return <AccountItem key={item.id} data={item} />;
+                // return <AccountItem key={item.id} data={item} />;
             })}
             {isLoading && <SkeletonAccount quanlity={1} />}
 
-            {!isLoading && <p onClick={hideLessUser ? handleSeeMore : handleHideLess} className={cx('more_btn')}>
+            {!isLoading || suggest.length > 0 && <p onClick={hideLessUser ? handleSeeMore : handleHideLess} className={cx('more_btn')}>
                 {hideLessUser ? moreButton : hideButton}
             </p>}
         </div>

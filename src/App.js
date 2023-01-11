@@ -9,15 +9,17 @@ import classNames from 'classnames/bind';
 
 
 import { ModalContext } from './Provider/ModalProvider';
-import { ThemeContext } from './Provider/ThemeProvider';
 import { SkeletonTheme } from 'react-loading-skeleton';
+import { useSelector } from 'react-redux';
+import { themeSelector } from './store/Selectors';
 
 
 const cx = classNames.bind(styles);
 
 function App() {
     const { openModal } = useContext(ModalContext);
-    const { darkTheme } = useContext(ThemeContext);
+
+    const darkTheme = useSelector(themeSelector)
 
     useEffect(() => {
         if (openModal) {

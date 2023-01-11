@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 const disoveries = [
     { icon: TagIcon, title: 'suthatla' },
     { icon: TagIcon, title: 'mackedoi' },
-    { icon: TagIcon, title: 'sangsangthaydoi'},
+    { icon: TagIcon, title: 'sangsangthaydoi' },
     { icon: MusicIcon, title: 'Yêu Đơn Phương Là Gì (MEE Remix) - Mee Media & h0n & BHMedia' },
     { icon: MusicIcon, title: 'Về Nghe Mẹ Ru - NSND Bach Tuyet & Hứa Kim Tuyền & 14 Casper & Hoàng Dũng' },
     { icon: MusicIcon, title: 'Thiên Thần Tình Yêu - RICKY STAR' },
@@ -17,7 +17,8 @@ const disoveries = [
     { icon: MusicIcon, title: 'Thằng Hầu (Thái Hoàng Remix) [Short Version] - Dunghoangpham' },
 ];
 
-function DiscoverTags({ label }) {  
+function DiscoverTags({ label }) {
+    
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>

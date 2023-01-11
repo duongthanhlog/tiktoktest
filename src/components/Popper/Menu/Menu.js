@@ -9,15 +9,17 @@ import styles from './Menu.module.scss';
 import classNames from 'classnames/bind';
 import { ThemeContext } from '~/Provider/ThemeProvider';
 import { UseLocalStorage } from '~/layouts/components/Hooks';
+import { useDispatch, useSelector } from 'react-redux';
+import { themeSelector } from '~/store/Selectors';
+import { changeTheme } from '~/store/action';
 
 const cx = classNames.bind(styles);
 
 function Menu({ children, items = [], hideOnClick = false, currentUser }) {
-    const activeBtn = JSON.parse(localStorage.getItem('activeButton'))
-    const {toggleDarkTheme} = useContext(ThemeContext)
     const [history, setHistory] = useState([{ data: items }]);
-    const [activeTheme, setActiveTheme] = useState(() => activeBtn ?? false)
     
+    const dispatch = useDispatch()
+    const darkTheme = useSelector(themeSelector)
     const current = history[history.length - 1];
 
     const renderItem = () =>
@@ -28,14 +30,14 @@ function Menu({ children, items = [], hideOnClick = false, currentUser }) {
                 <MenuItem
                     key={index}
                     data={item}
-                    activeTheme={activeTheme}
+                    to={item.to}
+                    isTheme={isTheme}
                     onClick={() => {
                         if (isParent) {
                             setHistory([...history, item.child]);
                         }
                         if(isTheme) {
-                            toggleDarkTheme()
-                            setActiveTheme(UseLocalStorage('activeButton', !activeTheme))
+                            dispatch(changeTheme(!darkTheme))
                         }
                     }}
                 />
@@ -46,6 +48,9 @@ function Menu({ children, items = [], hideOnClick = false, currentUser }) {
         setHistory((prev) => prev.slice(0, prev.length - 1));
     };
 
+    const handleToggleTheme = () => {
+
+    }
 
     const handleResetMenu = () => {
         setHistory((prev) => prev.slice(0, 1));

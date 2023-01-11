@@ -4,4 +4,5 @@ function UseLocalStorage(key, value) {
     return output
 }
 
+
 export default UseLocalStorage;

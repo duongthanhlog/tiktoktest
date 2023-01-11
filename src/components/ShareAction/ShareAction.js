@@ -19,7 +19,6 @@ import {
     ShareWhatsAppIcon,
 } from '../Icons';
 
-import { Popper } from '../Popper';
 
 const cx = classNames.bind(styles);
 const socialsShare = [

@@ -20,12 +20,14 @@ import LoginForm from './LoginForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import RegisterForm from './RegisterForm';
+import { useSelector } from 'react-redux';
+import { themeSelector } from '~/store/Selectors';
 
 const cx = classNames.bind(styles);
 
 
 function Modal() {
-    const {darkTheme} = useContext(ThemeContext)
+    const darkTheme = useSelector(themeSelector)
     const modalTypes = {
         login: {
             heading: 'Đăng nhập Tiktok',

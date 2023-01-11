@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import Skeleton from "react-loading-skeleton";
-import { FlyingHeard, LiveAnimate } from "~/components/Icons";
 import styles from './Live.module.scss'
 
 const cx = classNames.bind(styles)

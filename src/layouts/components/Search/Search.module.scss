@@ -22,7 +22,7 @@
         color: var(--text-color);
         background-color: transparent;
         margin-right: calc(var(--search-bottom-width) - 12px);
-        caret-color: red;
+        caret-color: var(--primary);
         font-size: var(--font-family);
     }
 
@@ -55,6 +55,8 @@
 
 .popper {
     width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .search_title {

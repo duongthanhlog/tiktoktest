@@ -3,29 +3,38 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { forwardRef, useContext } from 'react';
 import { UserCurrentContext, ModalContext } from '~/Provider';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function ActionButton({type, mount, className, onClick}, ref) {
-    const {currentUser} = useContext(UserCurrentContext)
-    const { handleOpenModal } = useContext(ModalContext)
+function ActionButton({ type, mount, className, to, ...props }, ref) {
+    const { currentUser } = useContext(UserCurrentContext);
+    const { handleOpenModal } = useContext(ModalContext);
+    
 
+    const classes = cx('action_btn', className);
+    
+    let Component = 'button'
 
-    const classes = cx('action_btn', className)
-
-    if(!currentUser && type.iconName !== 'share') {
-        onClick = handleOpenModal
+    if(to) {
+        props.to = to
+        Component = Link
     }
     
-    return ( 
-            <div ref={ref} className={cx('action')}>
-                <button onClick={onClick} className={classes}>
-                    <FontAwesomeIcon className={cx('icon')} icon={type} />
-                </button>
-                <div className={cx('amount')}>{mount}</div>
-            </div>
-     );
+    const handleClick = () => {
+        if (currentUser === false && !type.iconName.includes('share')) {
+            handleOpenModal()
+        }
+    }
+
+    return (
+        <div ref={ref} className={cx('action')}>
+            <Component onClick={handleClick} className={classes} {...props}>
+                <FontAwesomeIcon className={cx('icon')} icon={type} />
+            </Component>
+            <div className={cx('amount')}>{mount}</div>
+        </div>
+    );
 }
 
 export default forwardRef(ActionButton);
-

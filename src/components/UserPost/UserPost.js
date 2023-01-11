@@ -42,7 +42,7 @@ function UserPost({ data }) {
         }
     };
 
-    const toggleMute = () => {
+    const toggleMute = (e) => {
         setMute(!mute);
     };
 
@@ -81,14 +81,11 @@ function UserPost({ data }) {
     const renderPreviewAccount = () => {
         return (
             <Popper>
-                <AccountPreview
-                    data={data.user}
-                    haveFooter
-                />
+                <AccountPreview data={data.user} haveFooter />
             </Popper>
         );
     };
-    
+
     return (
         <div className={cx('post')}>
             <HeadlessTippy
@@ -98,7 +95,7 @@ function UserPost({ data }) {
                 delay={[800, 100]}
                 render={renderPreviewAccount}
             >
-                <Link className={cx('link_img')} to={`@${data.user.nickname}`} state={data.user}>
+                <Link className={cx('link_img')} to={config.routes.profileLink(data.user.nickname)} state={data.user}>
                     <Image className={cx('user_img')} src={data.user.avatar} />
                 </Link>
             </HeadlessTippy>
@@ -114,7 +111,11 @@ function UserPost({ data }) {
                                 delay={[800, 100]}
                                 render={renderPreviewAccount}
                             >
-                                <Link to={config.routes.profile} className={cx('nick_name')} state={data.user}>
+                                <Link
+                                    to={config.routes.profileLink(data.user.nickname)}
+                                    className={cx('nick_name')}
+                                    state={data.user}
+                                >
                                     {data.user.nickname}
                                     <FontAwesomeIcon className={cx('tick_icon')} icon={faCheckCircle} />
                                 </Link>
@@ -148,7 +149,13 @@ function UserPost({ data }) {
                             <span>Báo cáo</span>
                         </button>
 
-                        <VideoItem loop ref={videoRef} className={cx('video')} src={data.file_url || data.thumb_url} />
+                        <VideoItem
+                            loop
+                            ref={videoRef}
+                            className={cx('video')}
+                            src={data.file_url || data.thumb_url}
+                            poster={data.thumb_url}
+                        />
 
                         <div className={cx('video_controls')}>
                             <button onClick={togglePlayVideo} className={cx('control_btn')}>
@@ -185,7 +192,7 @@ function UserPost({ data }) {
 
                     <div className={cx('actions')}>
                         <ActionButton className={cx('liked_icon')} type={faHeart} mount={data.likes_count} />
-                        <ActionButton type={faCommentDots} mount={data.comments_count} />
+                        <ActionButton to={config.routes.video} type={faCommentDots} mount={data.comments_count} />
                         <ShareAction>
                             <ActionButton ref={shareAcctionRef} type={faShare} mount={data.shares_count} />
                         </ShareAction>

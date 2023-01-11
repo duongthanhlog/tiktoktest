@@ -54,6 +54,11 @@
         margin: 0;
     }
 
+    .menu_item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
    
     
     &.currentUser {
