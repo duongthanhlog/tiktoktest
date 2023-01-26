@@ -2,28 +2,51 @@ import styles from './Profile.module.scss';
 import classNames from 'classnames/bind';
 import Image from '~/components/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faEllipsis, faLink, faLock, faPlay, faShare } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBan,
+    faCircleQuestion,
+    faEllipsis,
+    faLink,
+    faLock,
+    faPlay,
+    faShare,
+} from '@fortawesome/free-solid-svg-icons';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
 import { useEffect, useRef, useState } from 'react';
-import { LockIcon } from '~/components/Icons';
+import { LockIcon, TickIcon } from '~/components/Icons';
 import ShareAction from '~/components/ShareAction';
 import HeadlessTippy from '@tippyjs/react/headless';
 
 import Button from '~/components/Button';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import HoverVideoPlayer from 'react-hover-video-player';
 import axios from 'axios';
 import { Popper } from '~/components/Popper';
+import config from '~/config';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
 function Profile() {
+    const reportMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faFlag} className={cx('icon')} />,
+            title: 'Chặn',
+            to: '/feedback',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faBan} className={cx('icon')} />,
+            title: 'Báo cáo',
+            to: '/feedback',
+        },
+    ];
+
     const { nickname } = useParams();
     const location = useLocation();
     const data = location.state;
 
-    const [user, setUser] = useState(() => data ?? {});
+    const [user, setUser] = useState(data ?? {});
     const [activeTabs, setActiveTabs] = useState({
         videoTab: true,
         likedTab: false,
@@ -85,23 +108,6 @@ function Profile() {
         };
     });
 
-    const renderOptionsReport = () => {
-        return (
-            <div className={cx('options_wrap')}>
-                <Popper className={cx('more_options')}>
-                    <div className={cx('option')}>
-                        <FontAwesomeIcon icon={faFlag} className={cx('icon')} />
-                        <span>Báo cáo</span>
-                    </div>
-                    <div className={cx('option')}>
-                        <FontAwesomeIcon icon={faBan} className={cx('icon')} />
-                        <span>Chặn</span>
-                    </div>
-                </Popper>
-            </div>
-        );
-    };
-
     const renderProfile = () => {
         return (
             <>
@@ -109,7 +115,10 @@ function Profile() {
                     <div className={cx('basic')}>
                         <Image className={cx('avatar')} src={user?.avatar} alt={user?.nickname} />
                         <div className={cx('names_wrap')}>
-                            <h2 className={cx('nick_name')}>{user?.nickname}</h2>
+                            <h2 className={cx('nick_name')}>
+                                {user?.nickname}
+                                {user.tick && <TickIcon className={cx('tick_icon')} />}
+                            </h2>
                             <p className={cx('full_name')}>
                                 {(user?.first_name + ' ' + user?.last_name).trim() || user?.nickname}
                             </p>
@@ -146,18 +155,11 @@ function Profile() {
                                 <FontAwesomeIcon icon={faShare} />
                             </span>
                         </ShareAction>
-                        <HeadlessTippy
-                            appendTo={document.body}
-                            hideOnClick={false}
-                            delay={[0, 200]}
-                            interactive
-                            placement="bottom-end"
-                            render={renderOptionsReport}
-                        >
+                        <Menu items={reportMenu} className={cx('options_wrap')}>
                             <span className={cx('more_btn')}>
                                 <FontAwesomeIcon icon={faEllipsis} />
                             </span>
-                        </HeadlessTippy>
+                        </Menu>
                     </div>
                 </div>
                 <div className={cx('content')}>
@@ -175,7 +177,7 @@ function Profile() {
                     </div>
                     {activeTabs.videoTab ? (
                         <div className={cx('videos_container')}>
-                            <div className={cx('video_wrap')}>
+                            <Link to={config.routes.video} className={cx('video_wrap')}>
                                 <HoverVideoPlayer
                                     videoClassName={cx('video')}
                                     videoSrc={data.popular_video?.file_url || ''}
@@ -191,7 +193,7 @@ function Profile() {
                                     {data.popular_video && <FontAwesomeIcon icon={faPlay} />}
                                     <strong>{data.popular_video?.views_count}</strong>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     ) : (
                         <div className={cx('liked_container')}>

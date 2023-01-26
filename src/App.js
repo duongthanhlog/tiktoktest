@@ -39,8 +39,8 @@ function App() {
 
     return (
         <SkeletonTheme
-            baseColor={darkTheme ? '#484848' : 'rgb(240, 240, 240)'}
-            highlightColor={darkTheme ? '#484848' : 'rgb(220, 220, 220)'}
+            baseColor={darkTheme ? '#3e3e3ea1' : 'rgb(240, 240, 240)'}
+            highlightColor={darkTheme ? '#3a3a3a' : 'rgb(220, 220, 220)'}
         >
           <Modal />
             <Router>

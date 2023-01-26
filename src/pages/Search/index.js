@@ -1,6 +1,6 @@
 function Search() {
     return ( 
-        <h2>Search page</h2>
+        <div></div>
      );
 }
 

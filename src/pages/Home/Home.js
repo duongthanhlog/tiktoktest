@@ -1,7 +1,7 @@
 
 
 import UserPost from '~/components/UserPost';
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import * as postService from '~/services/postService';
@@ -37,6 +37,7 @@ function Home() {
                 setPage(page + 1)
             }
         }
+
         window.addEventListener('scroll', () => {
             handleScrollLoadMore()
         });

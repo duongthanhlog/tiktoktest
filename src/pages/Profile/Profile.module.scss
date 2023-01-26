@@ -14,6 +14,22 @@
         display: flex;
         align-items: center;
 
+        .options_wrap {
+            width: 180px;
+            top: -4px;
+            
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -16px;
+            right: 11px; 
+            border: 10px solid;
+            border-color: transparent transparent var(--background-search-result) transparent;
+            z-index: 10;
+        }
+        }
+
         .share_btn {
             display: block;
             position: relative;
@@ -61,6 +77,15 @@
         text-overflow: ellipsis;
         text-align: left;
         color: var(--text-color);
+
+        .tick_icon {
+            margin-left: 10px;
+            transform: translateY(-4px);
+            color: var(--tick-icon-color);
+            // background-color: white;
+            // border-radius: 100%;
+            font-size: 2rem;
+        }
     }
     
     .full_name {
@@ -318,13 +343,3 @@
 }
 
 
-.options_wrap::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -32px;
-    right: 6px; 
-    border: 10px solid;
-    border-color: transparent transparent var(--background-search-result) transparent;
-    z-index: 10;
-}

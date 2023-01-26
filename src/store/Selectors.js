@@ -1,1 +1,1 @@
-export const themeSelector = (state) => state.darkTheme
+export const themeSelector = (state) => state.theme

@@ -12,7 +12,7 @@ import AccountPreview from '../AccountPreview';
 import ShareAction from '../ShareAction';
 
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { MusicIcon, MuteIcon, UnmuteIcon } from '~/components/Icons';
+import { MusicIcon, MuteIcon, TickIcon, UnmuteIcon } from '~/components/Icons';
 import { Link } from 'react-router-dom';
 
 import Button from '../Button';
@@ -21,6 +21,7 @@ import ProcessVolumn from '../ProcessVolumn';
 import config from '~/config';
 import VideoItem from './VideoItem';
 import { Popper } from '../Popper';
+import Description from '../Description';
 
 const cx = classNames.bind(styles);
 
@@ -67,7 +68,9 @@ function UserPost({ data }) {
     }
     useEffect(() => {
         window.addEventListener('scroll', playVideoWhenScroll);
-        return () => window.removeEventListener('scroll', playVideoWhenScroll);
+        return () => {
+            window.removeEventListener('scroll', playVideoWhenScroll);
+        }
     });
 
     useEffect(() => {
@@ -117,24 +120,15 @@ function UserPost({ data }) {
                                     state={data.user}
                                 >
                                     {data.user.nickname}
-                                    <FontAwesomeIcon className={cx('tick_icon')} icon={faCheckCircle} />
+                                    {data.user.tick && <TickIcon className={cx('tick_icon')}/>}
                                 </Link>
                             </HeadlessTippy>
-
-                            <p className={cx('full_name')}>{data.user.first_name + ' ' + data.user.last_name}</p>
+                            <Link to={config.routes.profileLink(data.user.nickname)} state={data.user} className={cx('full_name')}>{data.user.first_name + ' ' + data.user.last_name}</Link>
                         </div>
-
-                        <p className={cx('user_text')}>
-                            {data.description}
-                            <a className={cx('hashtag')} href="">
-                                {data.allows.map((allow, index) => (
-                                    <strong key={index}>#{allow} </strong>
-                                ))}
-                            </a>
-                        </p>
+                        <Description text={data.description} hashtag={data.allows}/>
                         <a href="/" className={cx('music_info')}>
                             <MusicIcon className={cx('icon')} width="1.6rem" height="1.6rem" />
-                            <strong>{data.music || 'Music song'} ❤️</strong>
+                            <strong>{data.music || 'Music ❤️'}</strong>
                         </a>
                     </div>
                     <Button primary outline className={cx('button')}>

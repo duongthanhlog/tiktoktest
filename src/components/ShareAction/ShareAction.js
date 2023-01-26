@@ -84,6 +84,10 @@ function ShareAction({ children, className, ...props }) {
         listWrapperRef.current.style.overflowY = overflowY;
     };
 
+    const handleHideListShare = () => {
+        handleSeeMore('280px', 'block', 'hidden')
+    }
+
     const classes = cx('list_wrapper', className)
     const renderListShare = () => {
         return (
@@ -117,7 +121,7 @@ function ShareAction({ children, className, ...props }) {
             interactive
             hideOnClick={false}
             render={renderListShare}
-            onHide={() => handleSeeMore('280px', 'block', 'hidden')}
+            onHide={handleHideListShare}
             {...props}
         >
             {children}

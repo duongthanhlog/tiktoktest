@@ -7,15 +7,25 @@ import { faCheckCircle, faChevronDown, faChevronUp, faCommentDots, faHeart, faPl
 import Button from '~/components/Button';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
 import ActionButton from '~/components/ActionButton/ActionButton';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function Video() {
+    
+    const navigate = useNavigate();
+    const location = useLocation()
+    console.log(location)
+
+    const handleBack = () => {
+        navigate(-1)
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('video_container')}>
                 <div className={cx('blur_background')}>
-                    <button className={cx('close_btn')}>
+                    <button onClick={handleBack} className={cx('close_btn')}>
                         <CloseVideoIcon width="18px" height="18px" className={cx('close_icon')} icon={faXmark} />
                     </button>
                     <CircleLogoApp className={cx('logo_circle')} width="40px" height="40px" />

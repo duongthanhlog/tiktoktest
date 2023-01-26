@@ -136,8 +136,7 @@ $transitionControls:0.3s ease;
 
 
 .user_name {
-    display: flex;
-    align-items: center;
+    display: inline-block;
     font-size: 1.4rem;
     line-height: 2.8rem;
     color: var(--text-color);
@@ -145,10 +144,29 @@ $transitionControls:0.3s ease;
     .tick_icon {
         color: #20d5ec;
         margin-left: 8px;
+        position: relative;
+        top: 2px;
     }
 
     .full_name {
         margin-left: 8px;
+        cursor: pointer;
+        padding: 8px 0;
+    }
+
+    &:hover .nick_name {
+        text-decoration: underline;
+    }
+
+    .nick_name {
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 25px;
+        color: var(--text-color);
+    
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -161,21 +179,7 @@ $transitionControls:0.3s ease;
 }
 
 
-.content:hover ~ .nick_name {
-    text-decoration: underline;
-}
 
-.nick_name {
-    font-weight: 700;
-    font-size: 1.8rem;
-    line-height: 25px;
-    color: var(--text-color);
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-}
 
 .user_text {
     color: var(--sub-text-color);
@@ -183,7 +187,7 @@ $transitionControls:0.3s ease;
     .hashtag {
         margin-left: 4px;
         &:hover {
-            text-decoration: underline;
+            text-decoration: underline  ;
         }
     }
 }

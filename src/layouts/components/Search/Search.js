@@ -11,6 +11,7 @@ import { SearchIcon } from '~/components/Icons/Icon';
 import { useDebounce } from '../Hooks';
 import * as searchServices from '~/services/searchService';
 
+
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -43,10 +44,8 @@ function Search() {
 
         const fetchApi = async () => {
             setLoading(true);
-
             const result = await searchServices.search(debounceValue);
             setSearchResult(result);
-
             setLoading(false);
         };
         fetchApi();
@@ -77,20 +76,17 @@ function Search() {
                     {searchResult.map((data) => {
                         return <AccountSearch key={data.id} data={data} onClick={handleHideResult}/>;
                     })}
+                    {searchText.length > 0 && <div className={cx('footer')}>Xem tất cả kết quả cho "{searchText}"</div>}
                 </Popper>
             </div>
         );
-    };
-
-    const handleSearch = () => {
-        console.log(213);
     };
 
     return (
         <div>
             <HeadlessTippy
                 interactive
-                visible={showResult && searchResult.length > 0}
+                visible={showResult && searchResult.length > 0 && !loading}
                 render={renderSearchResult}
                 onClickOutside={handleHideResult}
             >
@@ -110,7 +106,7 @@ function Search() {
                     )}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                    <div ref={submitBtnRef} onClick={handleSearch} className={cx('search_btn')}>
+                    <div ref={submitBtnRef} className={cx('search_btn')}>
                         <SearchIcon width="2.4rem" height="2.4rem" className={cx('search_icon')} />
                     </div>
                 </div>

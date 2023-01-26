@@ -28,7 +28,7 @@
     --text-color:#333;
     --white:#fff;
     --border-sperate-color: #f0f0f1;
-    --sidebar-width : 340px;
+    --sidebar-width : 348px;
     --background-theme: white;
     --search-background:#f1f1f2;
     --color-search-icon: #767676;
@@ -131,7 +131,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
+    }
+
 
 html {
     font-size: 62.5%;
@@ -139,7 +140,7 @@ html {
 
 
 body {
-    font-family:ProximaNova-Nova-Regular;
+    font-family: ProximaNova-Nova-Regular;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;

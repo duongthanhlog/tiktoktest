@@ -1,6 +1,6 @@
 const initState = {
     currentUser : false,
-    darkTheme  : JSON.parse(localStorage.getItem('darkTheme')) ?? false
+    theme  : JSON.parse(localStorage.getItem('darkTheme')) ?? false
 }
 
  const rootReducer = (state = initState, action) => {
@@ -8,7 +8,7 @@ const initState = {
         case 'changeTheme':
             return {
                 ...state,
-                darkTheme : action.payload
+                theme : action.payload
             }
         default :
             return state

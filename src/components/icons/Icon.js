@@ -1,3 +1,6 @@
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const MessageIcon = ({ width = '3.2rem', height = '3.2rem', className }) => {
     return (
         <svg
@@ -989,3 +992,8 @@ export const CloseVideoIcon = ({ width = '3.2rem', height = '3.2rem', className 
         </svg>
     );
 };
+
+
+export const TickIcon = ({className}) => {
+    return <FontAwesomeIcon style={{borderRadius: 100, backgroundColor: 'white'}} className={className} icon={faCheckCircle} />
+}

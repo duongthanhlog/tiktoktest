@@ -41,9 +41,7 @@ function Following() {
                 setPage(page + 1);
             }
         };
-        window.addEventListener('scroll', () => {
-            handleScrollLoadMore();
-        });
+        window.addEventListener('scroll', handleScrollLoadMore);
         return () => window.removeEventListener('scroll', handleScrollLoadMore);
     });
 
@@ -65,7 +63,7 @@ function Following() {
                     >
                         <HoverVideoPlayer
                             key={video.uuid}
-                            videoSrc={video.file_url}
+                            videoSrc={video.file_url || video.thumb_url}
                             videoStyle={{
                                 height: '100%',
                                 borderRadius: 10,

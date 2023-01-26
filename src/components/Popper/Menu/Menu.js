@@ -15,7 +15,7 @@ import { changeTheme } from '~/store/action';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], hideOnClick = false, currentUser }) {
+function Menu({ children, items = [], hideOnClick = false, currentUser, className }) {
     const [history, setHistory] = useState([{ data: items }]);
     
     const dispatch = useDispatch()
@@ -48,17 +48,15 @@ function Menu({ children, items = [], hideOnClick = false, currentUser }) {
         setHistory((prev) => prev.slice(0, prev.length - 1));
     };
 
-    const handleToggleTheme = () => {
-
-    }
 
     const handleResetMenu = () => {
         setHistory((prev) => prev.slice(0, 1));
     };
 
     const renderResult = () => {
+        const classes = cx('menu_list', className, { currentUser })
         return (
-            <div className={cx('menu_list', { currentUser })}>
+            <div className={classes}>
                 <Popper className={cx('menu_popper')}>
                     {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
                     <div className={cx('menu_body')}>{renderItem()}</div>
