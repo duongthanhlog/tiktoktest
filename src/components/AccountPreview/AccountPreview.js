@@ -6,7 +6,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
 import config from '~/config';
-import { TickIcon } from '../Icons';
+import { TickIcon } from '../Icon';
 
 const cx = classNames.bind(styles);
 
