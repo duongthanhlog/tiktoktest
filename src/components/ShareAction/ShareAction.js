@@ -17,7 +17,7 @@ import {
     ShareTelegramInIcon,
     ShareTwitterIcon,
     ShareWhatsAppIcon,
-} from '../Icons';
+} from '../Icon';
 
 
 const cx = classNames.bind(styles);

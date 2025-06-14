@@ -9,7 +9,7 @@ import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
 import config from '~/config';
 import { useEffect, useRef, useState } from 'react';
-import { TickIcon } from '~/components/Icons';
+import { TickIcon } from '~/components/Icon';
 
 const cx = classNames.bind(styles);
 

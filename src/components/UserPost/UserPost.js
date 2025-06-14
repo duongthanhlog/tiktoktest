@@ -12,7 +12,7 @@ import AccountPreview from '../AccountPreview';
 import ShareAction from '../ShareAction';
 
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { MusicIcon, MuteIcon, TickIcon, UnmuteIcon } from '~/components/Icons';
+import { MusicIcon, MuteIcon, TickIcon, UnmuteIcon } from '~/components/Icon';
 import { Link } from 'react-router-dom';
 
 import Button from '../Button';

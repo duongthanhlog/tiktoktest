@@ -1,7 +1,7 @@
 import styles from './Video.module.scss';
 import classNames from 'classnames/bind';
 import Image from '~/components/Image';
-import { CircleLogoApp, CloseVideoIcon, FacebookIcon, MusicIcon, MuteIcon, ShareEmbedIcon, ShareMessageIcon, ShareTwitterIcon, ShareWhatsAppIcon, UnmuteIcon } from '~/components/Icons';
+import { CircleLogoApp, CloseVideoIcon, FacebookIcon, MusicIcon, MuteIcon, ShareEmbedIcon, ShareMessageIcon, ShareTwitterIcon, ShareWhatsAppIcon, UnmuteIcon } from '~/components/Icon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faChevronDown, faChevronUp, faCommentDots, faHeart, faPlay, faShare, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';

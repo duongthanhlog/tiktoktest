@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
 import { useEffect, useRef, useState } from 'react';
-import { LockIcon, TickIcon } from '~/components/Icons';
+import { LockIcon, TickIcon } from '~/components/Icon';
 import ShareAction from '~/components/ShareAction';
 import HeadlessTippy from '@tippyjs/react/headless';
 

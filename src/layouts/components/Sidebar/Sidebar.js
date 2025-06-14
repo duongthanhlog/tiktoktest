@@ -7,7 +7,7 @@ import {
     LiveIconActive,
     UserGroupIconActive,
     HomeIconActive,
-} from '~/components/Icons';
+} from '~/components/Icon';
 import SuggestAccount from '../SuggestedAccounts/SuggestedAccounts';
 import LoginBox from '../LoginBox';
 import { Fragment, memo, useContext } from 'react';

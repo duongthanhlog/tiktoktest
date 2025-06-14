@@ -14,7 +14,7 @@ import {
     QRicon,
     TwitterIcon,
     UserIcon,
-} from '../Icons';
+} from '../Icon';
 
 import LoginForm from './LoginForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

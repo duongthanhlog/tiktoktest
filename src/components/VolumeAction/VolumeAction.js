@@ -1,6 +1,6 @@
 import styles from './VolumeAction.module.scss';
 import classNames from 'classnames/bind';
-import { MuteIcon, UnmuteIcon } from '../Icons';
+import { MuteIcon, UnmuteIcon } from '../Icon';
 import ProcessVolumn from '../ProcessVolumn';
 import Tippy from '@tippyjs/react/headless';
 import { forwardRef, useEffect, useState } from 'react';

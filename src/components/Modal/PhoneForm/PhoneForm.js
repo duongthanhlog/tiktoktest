@@ -1,7 +1,7 @@
 import styles from './PhoneForm.module.scss';
 import classNames from 'classnames/bind';
 import Image from '~/components/Image';
-import { QRicon, UserIcon } from '~/components/Icons';
+import { QRicon, UserIcon } from '~/components/Icon';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';

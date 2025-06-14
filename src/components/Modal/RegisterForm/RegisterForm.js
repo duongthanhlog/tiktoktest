@@ -1,7 +1,7 @@
 import styles from './RegisterForm.module.scss';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import { SeeMoreIcon } from '~/components/Icons';
+import { SeeMoreIcon } from '~/components/Icon';
 
 const cx = classNames.bind(styles)
 

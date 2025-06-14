@@ -22,7 +22,7 @@ import config from '~/config';
 import Button from '~/components/Button/Button';
 import Menu from '~/components/Popper/Menu/Menu';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
-import { MessageIcon, MailBox, MailBoxActive } from '~/components/Icons/Icon';
+import { MessageIcon, MailBox, MailBoxActive } from '~/components/Icon/Icon';
 import Image from '~/components/Image/Image';
 import Search from '../Search/Search';
 import { useContext, useState } from 'react';

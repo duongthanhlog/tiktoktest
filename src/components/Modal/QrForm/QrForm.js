@@ -1,7 +1,7 @@
 import styles from './QrForm.module.scss'
 import classNames from 'classnames/bind';
 import Image from '~/components/Image';
-import { QRicon, UserIcon } from '~/components/Icons';
+import { QRicon, UserIcon } from '~/components/Icon';
 
 const cx = classNames.bind(styles)
 

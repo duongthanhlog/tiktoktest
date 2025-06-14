@@ -1,4 +1,4 @@
-import { MusicIcon, TagIcon } from '~/components/Icons';
+import { MusicIcon, TagIcon } from '~/components/Icon';
 import classNames from 'classnames/bind';
 import styles from './DiscoverTags.module.scss';
 
